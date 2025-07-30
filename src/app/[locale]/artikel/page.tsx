@@ -77,7 +77,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                     src={article.image}
                     alt={article.title[locale]}
                     fill
-                    className="object-cover object-center"
+                    className="object-cover object-center sm:object-cover"
                     style={{ objectPosition: 'center 20%' }}
                   />
                   <div className="absolute inset-0 bg-black/20"></div>

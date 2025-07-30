@@ -196,6 +196,14 @@ body {
   }
 }
 
+/* Mobile image scaling for article cards */
+@media (max-width: 767px) {
+  .mobile-card .relative img {
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+}
+
 @media (min-width: 1280px) {
   .mobile-card-grid-4 {
     grid-template-columns: repeat(4, 1fr);
