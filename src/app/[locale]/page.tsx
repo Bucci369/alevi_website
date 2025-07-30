@@ -2,7 +2,6 @@ import { EventCard } from '@/components/ui/EventCard'
 import { Locale, Event } from '@/types'
 import { translations } from '@/lib/i18n/config'
 import Link from 'next/link'
-import Image from 'next/image'
 
 interface HomePageProps {
   params: Promise<{ locale: Locale }>

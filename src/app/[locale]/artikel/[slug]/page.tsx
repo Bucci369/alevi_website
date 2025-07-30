@@ -9,9 +9,26 @@ interface ArticleDetailPageProps {
   params: Promise<{ locale: Locale; slug: string }>
 }
 
+interface Article {
+  id: string
+  title: {
+    de: string
+    tr: string
+  }
+  image: string
+  content: {
+    de: string
+    tr: string
+  }
+  author: string
+  publishedDate: Date
+  readTime: number
+  tags: string[]
+}
+
 // Mock article data - später aus CMS oder Database
-const getArticleBySlug = (slug: string) => {
-  const articles: Record<string, any> = {
+const getArticleBySlug = (slug: string): Article | undefined => {
+  const articles: Record<string, Article> = {
     'haci-bektas-veli': {
       id: 'haci-bektas-veli',
       title: {

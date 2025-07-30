@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { locales, defaultLocale } from '@/lib/i18n/config'
+import { Locale } from '@/types'
 
 function getLocale(request: NextRequest): string {
   // Check if locale is in URL
@@ -18,8 +19,8 @@ function getLocale(request: NextRequest): string {
       .map(lang => lang.split(';')[0].trim().toLowerCase())
     
     const supportedLocale = browserLocales.find(lang => 
-      locales.includes(lang as any) || 
-      locales.includes(lang.split('-')[0] as any)
+      locales.includes(lang as Locale) || 
+      locales.includes(lang.split('-')[0] as Locale)
     )
     
     if (supportedLocale) {

@@ -9,7 +9,6 @@ interface CoursesPageProps {
 
 export default async function CoursesPage({ params }: CoursesPageProps) {
   const { locale } = await params
-  const t = translations[locale]
 
   const courses = [
     {

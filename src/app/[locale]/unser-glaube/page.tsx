@@ -1,5 +1,4 @@
 import { Locale } from '@/types'
-import { translations } from '@/lib/i18n/config'
 import Link from 'next/link'
 
 interface FaithPageProps {

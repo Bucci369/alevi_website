@@ -1,5 +1,4 @@
 import { Locale } from '@/types'
-import { translations } from '@/lib/i18n/config'
 
 interface EngagementPageProps {
   params: Promise<{ locale: Locale }>

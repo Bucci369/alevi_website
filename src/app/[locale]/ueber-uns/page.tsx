@@ -7,7 +7,6 @@ interface AboutPageProps {
 
 export default async function AboutPage({ params }: AboutPageProps) {
   const { locale } = await params
-  const t = translations[locale]
 
   const boardMembers = [
     { name: 'Aziz Aslandemir', role: '1. Vorsitzender', role_tr: '1. Başkan' },

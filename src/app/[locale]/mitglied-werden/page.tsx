@@ -7,7 +7,6 @@ interface MembershipPageProps {
 
 export default async function MembershipPage({ params }: MembershipPageProps) {
   const { locale } = await params
-  const t = translations[locale]
 
   const membershipBenefits = [
     {
