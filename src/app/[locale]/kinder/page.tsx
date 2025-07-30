@@ -50,9 +50,9 @@ export default function KinderPage() {
       <div className="absolute top-20 right-20 w-16 h-10 bg-white rounded-full opacity-70 animate-float-delayed"></div>
       <div className="absolute top-32 left-1/3 w-24 h-14 bg-white rounded-full opacity-60 animate-float-slow"></div>
 
-      {/* CSS Robot Character */}
-      <div className="absolute top-20 left-1/2 transform -translate-x-1/2">
-        <div className="robot-container animate-bounce-gentle">
+      {/* CSS Robot Character positioned behind first card */}
+      <div className="absolute top-[calc(100vh-280px)] left-[calc(50%-200px)] transform z-10 md:left-[calc(25%-50px)]">
+        <div className="robot-container animate-bounce-gentle transform scale-75 opacity-90 hover:opacity-100 transition-opacity duration-300">
           {/* Light Bulb */}
           <div className="w-6 h-8 bg-yellow-300 rounded-full mx-auto mb-2 relative animate-pulse">
             <div className="absolute top-1 left-1 w-2 h-2 bg-yellow-100 rounded-full"></div>
@@ -98,10 +98,19 @@ export default function KinderPage() {
       </div>
 
       {/* Main Content */}
-      <div className="pt-80 pb-16 px-4">
+      <div className="pt-80 pb-16 px-4 relative">
         <div className="max-w-4xl mx-auto">
+          {/* Kid and Robot Image positioned behind speech bubble - fixed relative to content */}
+          <div className="absolute top-24 left-1/2 transform -translate-x-1/2 z-5">
+            <img 
+              src="/kidandrobot.png" 
+              alt="Kid and Robot" 
+              className="w-60 h-60 md:w-80 md:h-80 object-contain animate-bounce-gentle"
+            />
+          </div>
+
           {/* Speech Bubble */}
-          <div className="bg-yellow-200 rounded-3xl p-8 mb-8 relative border-4 border-yellow-400 shadow-xl">
+          <div className="bg-yellow-200 rounded-3xl p-8 mb-8 relative border-4 border-yellow-400 shadow-xl z-10">
             {/* Speech Bubble Arrow */}
             <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-b-8 border-l-transparent border-r-transparent border-b-yellow-200"></div>
             <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-10 border-r-10 border-b-10 border-l-transparent border-r-transparent border-b-yellow-400"></div>
@@ -118,11 +127,11 @@ export default function KinderPage() {
           </div>
 
           {/* Symbol Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-20">
             {symbols.map((symbol, index) => (
               <div 
                 key={index}
-                className="bg-white rounded-3xl p-6 shadow-2xl border-4 border-purple-300 hover:border-pink-400 transform hover:scale-105 transition-all duration-300 cursor-pointer group"
+                className="bg-white rounded-3xl p-6 shadow-2xl border-4 border-purple-300 hover:border-pink-400 transform hover:scale-105 transition-all duration-300 cursor-pointer group relative"
               >
                 <div className="text-center">
                   <div className="text-6xl mb-4 group-hover:animate-spin">{symbol.emoji}</div>
