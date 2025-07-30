@@ -45,6 +45,12 @@
 
 body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  padding-top: 64px; /* Header height (h-16 = 4rem = 64px) */
+}
+
+/* Smooth scrolling für bessere UX */
+html {
+  scroll-behavior: smooth;
 }
 
 /* Utility classes for text truncation */
@@ -131,24 +137,98 @@ body {
   animation-delay: 0.6s;
 }
 
-.article-image-card {
-  transition: all 0.3s ease;
-  transform: perspective(1000px) rotateX(0deg);
-}
-
-.article-image-card:hover {
-  transform: perspective(1000px) rotateX(2deg) translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+/* 3D Floating Image Effects - Direct on Images */
+.article-image-container {
+  position: relative;
+  display: inline-block;
 }
 
 .article-image {
-  transition: all 0.4s ease;
-  filter: grayscale(10%) brightness(0.95);
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: brightness(0.98) contrast(1.02);
+  
+  /* 3D Floating effects directly on image */
+  transform: perspective(1000px) rotateX(2deg) rotateY(1deg) translateY(-5px);
+  
+  /* Realistic floating shadow */
+  box-shadow:
+    /* Direct shadow */
+    0 8px 16px rgba(0, 0, 0, 0.12),
+    /* Ambient shadow */
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    /* Ground projection */
+    0 35px 60px rgba(0, 0, 0, 0.06);
 }
 
-.article-image-card:hover .article-image {
-  filter: grayscale(0%) brightness(1);
-  transform: scale(1.02);
+.article-image-container::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.1) 25%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.05) 75%,
+    rgba(0, 0, 0, 0.1) 100%);
+  border-radius: 16px;
+  z-index: -1;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.article-image:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(3deg) translateY(-12px);
+  filter: brightness(1.02) contrast(1.05);
+  box-shadow:
+    /* Enhanced shadows on hover */
+    0 15px 30px rgba(0, 0, 0, 0.15),
+    0 35px 60px rgba(0, 0, 0, 0.12),
+    0 50px 80px rgba(0, 0, 0, 0.08);
+}
+
+.article-image-container:hover::before {
+  opacity: 1;
+}
+
+/* Mobile-optimized floating effects */
+@media (max-width: 768px) {
+  .article-image {
+    transform: perspective(800px) rotateX(1deg) translateY(-3px);
+    box-shadow:
+      0 6px 12px rgba(0, 0, 0, 0.1),
+      0 15px 25px rgba(0, 0, 0, 0.06),
+      0 25px 40px rgba(0, 0, 0, 0.04);
+  }
+  
+  .article-image:active {
+    transform: perspective(800px) rotateX(3deg) rotateY(2deg) translateY(-8px);
+    box-shadow:
+      0 10px 20px rgba(0, 0, 0, 0.12),
+      0 20px 35px rgba(0, 0, 0, 0.08),
+      0 30px 50px rgba(0, 0, 0, 0.06);
+  }
+}
+
+/* Floating animation for non-hover devices */
+@media (hover: none) {
+  .article-image {
+    animation: gentleFloat 4s ease-in-out infinite;
+  }
+}
+
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: perspective(800px) rotateX(1deg) translateY(-3px);
+  }
+  50% {
+    transform: perspective(800px) rotateX(2deg) rotateY(1deg) translateY(-6px);
+  }
 }
 
 /* Scroll-triggered Animationen */

@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Disallow private areas
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://www.alevido.de/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1

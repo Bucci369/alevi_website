@@ -1,7 +1,7 @@
 import { EventCard } from '@/components/ui/EventCard'
+import { AuroraBackgroundDemo } from '@/components/ui/aurora-background-demo'
 import { Locale, Event } from '@/types'
 import { translations } from '@/lib/i18n/config'
-import Link from 'next/link'
 
 interface HomePageProps {
   params: Promise<{ locale: Locale }>
@@ -83,40 +83,8 @@ export default async function HomePage({ params }: HomePageProps) {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section 
-        className="relative text-white min-h-screen flex items-center"
-        style={{
-          backgroundImage: `url('/13175.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundAttachment: 'fixed'
-        }}
-      >
-        <div className="absolute inset-0 bg-black/40"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 z-10">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white drop-shadow-2xl">
-              {locale === 'de' ? 'Willkommen' : 'Hoş Geldiniz'}
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-white drop-shadow-xl">
-              {locale === 'de' 
-                ? 'Alevitische Gemeinde Dortmund e.V. - Eine Gemeinschaft der Vielfalt, des Respekts und der kulturellen Bereicherung.'
-                : 'Alevitische Gemeinde Dortmund e.V. - Çeşitlilik, saygı ve kültürel zenginlik topluluğu.'
-              }
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link href={`/${locale}/ueber-uns`} className="bg-white text-black border border-gray-300 rounded-full px-8 py-3 font-semibold hover:bg-gray-50 inline-block shadow-xl text-center min-w-fit">
-                {locale === 'de' ? 'Über uns' : 'Hakkımızda'}
-              </Link>
-              <Link href={`/${locale}/mitglied-werden`} className="bg-white text-black border border-gray-300 rounded-full px-8 py-3 font-semibold hover:bg-gray-50 inline-block shadow-xl text-center min-w-fit">
-                {locale === 'de' ? 'Mitglied werden' : 'Üye Ol'}
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Hero Section with Aurora Background */}
+      <AuroraBackgroundDemo locale={locale} />
 
       {/* Features Section */}
       <section className="py-16 bg-white">

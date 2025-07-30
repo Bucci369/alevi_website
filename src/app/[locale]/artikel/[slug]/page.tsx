@@ -37,166 +37,107 @@ const getArticleBySlug = (slug: string): Article | undefined => {
       },
       image: '/hacibektasveli01.png',
       content: {
-        de: `# Hacı Bektaş Veli: Das leuchtende Herz des Alevitentums
+        de: `# Hacı Bektaş Veli: Der große Mystiker des Alevitentums
 
-## 1. Einleitung: Hacı Bektaş Veli - Das Herz des Alevitentums
+## 1. Wer war Hacı Bektaş Veli?
 
-Hacı Bektaş Veli (ca. 1209-1271) ist eine der zentralsten und meistverehrten Persönlichkeiten des anatolischen Alevitentums. Er wird als ein großer türkischer Philosoph und Mystiker des 13. Jahrhunderts angesehen, dessen Lehren das Alevitentum maßgeblich geprägt und dessen humanistische Ausrichtung gefestigt haben. Seine Philosophie, die auf Menschlichkeit, Menschenrechten und sozialer Gleichheit basiert und die "Liebe zum Universum, zu Gott und zum Menschen" in den Mittelpunkt stellt, hat sich weit über Anatolien hinaus verbreitet und prägt bis heute die alevitische Glaubenslehre.
+Hacı Bektaş Veli (1209-1271) ist eine der wichtigsten Persönlichkeiten für das Alevitentum. Stellen Sie sich vor: Im 13. Jahrhundert, einer Zeit großer Umbrüche, lebte ein Mann, dessen Lehren bis heute Millionen von Menschen inspirieren. Er war ein Philosoph, ein Mystiker und vor allem ein Mensch, der glaubte, dass alle Menschen - unabhängig von ihrer Herkunft oder ihrem Geschlecht - gleichwertig sind.
 
-Die Botschaften von Hacı Bektaş Veli, die sich auf Liebe, Frieden, Gerechtigkeit und die Vervollkommnung des Menschen konzentrieren, sind für Aleviten weltweit, und insbesondere für die Alevi-Gemeinschaften in der Diaspora in Deutschland, von immenser Bedeutung. Sie bilden das ethische und spirituelle Fundament für das alevitische Selbstverständnis und dienen als Leitfaden für das Engagement in der Gesellschaft.
+Geboren wurde er in Nişabur (im heutigen Iran) und erhielt eine umfassende Bildung. Was ihn besonders machte: Er verband religiöse Spiritualität mit praktischen Lebensregeln und setzte sich für Gerechtigkeit und Bildung ein. Vor der mongolischen Invasion floh er nach Anatolien (Türkei) und gründete dort in Hacıbektaş seine Derwisch-Loge - eine Art spirituelles Zentrum, das Menschen aus allen Schichten anzog.
 
-Als Vertreter der Yesevi-Tradition und Schüler von Baba İlyâs-ı Horasânî spielte er eine Schlüsselrolle bei der Islamisierung Anatoliens. Seine Lehren verbanden sufistische Mystik mit volkstümlicher Religiosität und schufen eine einzigartige spirituelle Synthese, die bis heute nachwirkt und in modernen pluralistischen Gesellschaften wie Deutschland wichtige Impulse für Integration, Vielfalt und soziale Gerechtigkeit bietet.
+## 2. Seine revolutionären Lehren
 
-## 2. Wer war Hacı Bektaş Veli? Leben, Ursprung und spiritueller Weg
+Was machte Hacı Bektaş Veli so besonders? Seine Lehren waren für die damalige Zeit revolutionär:
 
-Hacı Bektaş Veli wurde um 1209 in Nişabur (Chorasan), einer bedeutenden Stadt in der heutigen iranischen Region, geboren. Er entstammte einer wohlhabenden Familie und erhielt eine umfassende Ausbildung in Philosophie, Physik, Literatur und anderen Wissenschaften unter der Anleitung von Lokman Parende, einem Schüler des bekannten Sufi-Meisters Hoca Ahmed Yesevi (1103-1165). Seine Abstammung wird in alevitischen Quellen auch mit dem vierten Kalifen Ali in Verbindung gebracht, was seine tiefe Verwurzelung im alevitischen Glauben und seine spirituelle Autorität unterstreicht.
+**Die Gleichberechtigung der Geschlechter:** Während Frauen in vielen religiösen Traditionen ausgeschlossen wurden, lehrte er, dass Männer und Frauen gleichberechtigt am spirituellen Leben teilnehmen sollten. Dies prägt das Alevitentum bis heute.
 
-Sein spiritueller Werdegang begann mit der Ausbildung bei Lokman Parende und setzte sich mit der Nachfolge der Lehren von Hoca Ahmed Yesevi fort. Als Kalif (Nachfolger) Yesevis brachte er dessen sufistische Tradition nach Anatolien. Dort schloss er sich der spirituellen Schule von Dede Garkın und dessen Kalif Baba İlyâs-ı Horasani an.
+**Bildung für alle:** Sein berühmter Ausspruch "Ein Weg ohne Wissenschaft endet in der Finsternis" zeigt, wie wichtig ihm Bildung war. Er glaubte, dass jeder Mensch lernen und sich entwickeln sollte.
 
-Nach seiner Ausbildung und ausgedehnten Reisen durch Turkestan, Iran, Bagdad, Kerbela und Syrien, floh Hacı Bektaş Veli vor der mongolischen Invasion und ließ sich um 1275-1280 in Sulucakarahöyük (heute Hacıbektaş in der Provinz Nevşehir, Zentralanatolien) nieder. Dort gründete er seine Derwisch-Loge, die zu einem Zentrum der Lehre und Verbreitung seiner humanistischen Philosophie wurde. Er wurde schließlich 1271 in der Nähe des heutigen Nevşehir in Kappadokien begraben.
+**Der Mensch im Mittelpunkt:** "Meine Kaaba ist der Mensch" - mit diesen Worten machte er deutlich, dass nicht Gebäude oder Rituale das Wichtigste sind, sondern der Mensch selbst und wie wir einander behandeln.
 
-Die Zeit seines Wirkens war geprägt von den Seldschuken-Sultanat und den beginnenden mongolischen Invasionen, die große Bevölkerungsbewegungen aus Zentralasien nach Anatolien auslösten. In diesem Kontext wurde Hacı Bektaş Veli zu einer zentralen Figur bei der friedlichen Verbreitung des Islam unter der anatolischen Bevölkerung und trug maßgeblich zur kulturellen Harmonie und Aufklärung in Anatolien bei.
+## 3. Die drei goldenen Regeln fürs Leben
 
-## 3. Die Essenz seiner Lehren: Humanismus, Liebe und die Vervollkommnung des Menschen
+Hacı Bektaş Veli entwickelte eine einfache, aber kraftvolle Lebensphilosophie, die jeder verstehen kann. Seine berühmte Regel lautet: **"Eline, beline, diline sahip ol!"** - "Kontrolliere deine Hand, deine Lende und deine Zunge!"
 
-Als Träger der Yesevi-Tradition vertrat Hacı Bektaş Veli einen volksnahen, humanistischen Islam. Die Yesevi-Sufis, benannt nach Ahmed Yesevi, zeichneten sich durch ihre Betonung der Liebe (aşk), Toleranz und sozialen Gerechtigkeit aus.
+Was bedeutet das konkret?
 
-Seine Lehren betonten die innere spirituelle Entwicklung des Menschen und die Überwindung des Ego (nefs). Dabei verband er sufistische Metaphysik mit praktischen ethischen Grundsätzen, die das tägliche Leben der Gläubigen prägten. Ein zentraler Aspekt seiner Lehre war die Gleichberechtigung von Mann und Frau in spirituellen Angelegenheiten – eine damals revolutionäre Idee, die bis heute das Alevitentum prägt.
+**Deine Hände (Eline):** Nutze deine Hände für Gutes. Arbeite ehrlich, hilf anderen, aber verletze niemals jemanden. Keine Gewalt, kein Diebstahl - stattdessen produktive und hilfreiche Taten.
 
-### Die "Vier Tore und Vierzig Stufen" (Dört Kapı Kırk Makam): Ein Weg zur menschlichen Vervollkommnung
+**Deine Lende (Beline):** Beherrsche deine Triebe und Leidenschaften. Das bedeutet nicht, sie zu unterdrücken, sondern verantwortungsvoll mit ihnen umzugehen, sodass du dir und anderen nicht schadest.
 
-Hacı Bektaş Veli strukturierte seinen mystischen Weg zur menschlichen Vervollkommnung durch das Konzept der "Vier Tore und Vierzig Stufen". Dieses systematische Framework, das auch im Buyruk (einem zentralen alevitischen Katechismus) beschrieben wird, dient als umfassendes ethisches und spirituelles Fundament für Aleviten. Es leitet den Einzelnen auf seinem Lebensweg an, ein "İnsan-ı kâmil" (vollkommener Mensch) zu werden.
+**Deine Zunge (Diline):** Sprich respektvoll und wahrhaftig. Keine Lügen, kein böser Klatsch, keine Verleumdungen. Deine Worte sollen andere aufbauen, nicht verletzen.
 
-1. Şeriat (Formales Verhalten/Religiöses Gesetz): Dieses erste Tor konzentriert sich auf die grundlegenden Regeln des Pfades und das Streben nach einer friedlichen und harmonischen Gesellschaft. Es beinhaltet Glaubensbereitschaft, wissenschaftliches Lernen, ehrlichen Einkommenserwerb, Vermeidung von Ausbeutung, Achtung zwischen Männern und Frauen, eheliche Treue, Fürsorge für andere, gesundes Essen und gepflegtes Aussehen sowie den Willen, Gutes zu tun. Hacı Bektaş Veli nannte die Menschen in diesem Tor "Abitler" (die Betenden).
+Diese drei Regeln sind wie ein Kompass für ein ethisches Leben - einfach zu verstehen, aber kraftvoll in der Wirkung.
 
-2. Tarikat (Mystischer Pfad): Im zweiten Tor lernen Individuen den mystischen Pfad, indem sie sich einer spirituellen Ordnung anschließen. Es umfasst Vertrauen zum geistlichen Lehrer, Liebe zum Lernen, Nachrangigkeit äußeren Ansehens, Beherrschung des Egos, Achtung Anderen und sich selbst gegenüber, Ehrfurcht und Liebe zu Gott, Hoffnung auf Gottes Hilfe, Bereitschaft Gottes Weg zu suchen, Friedfertigkeit und Liebe in der Gemeinschaft sowie Liebe und Schutz gegenüber Menschen und Natur. Hacı Bektaş Veli bezeichnete die Menschen in diesem Tor als "Zahitler" (die Religiösen).
+## 4. Der Weg zur Vervollkommnung: Die "Vier Tore"
 
-3. Marifet (Erkenntnis): Das dritte Tor ist der Ort der Erkenntnis, wo Individuen tiefes Wissen erlangen. Es beinhaltet korrektes Benehmen, ehrenhaftes Leben, Geduld, Genügsamkeit, Wahrung der Schamgrenzen, Freigiebigkeit, Bemühen um Wissenserwerb, Ausgewogenheit im Urteil und die Pflege innerer Harmonie sowie die Übung der Selbsterkenntnis. Die Menschen in diesem Stadium werden als "Arifler" (die Erfahrenen oder Weisen) bezeichnet.
+Hacı Bektaş Veli lehrte, dass jeder Mensch ein "vollkommener Mensch" (İnsan-ı kâmil) werden kann. Er entwickelte dafür einen Stufenweg mit vier "Toren":
 
-4. Hakikat (Wahrheit): Das vierte und letzte Tor führt zur ultimativen Wahrheit. Hier lernen Individuen den Ursprung ihrer Persönlichkeit und erkennen die Wahrheit, indem sie an Gottes Gegenwart im menschlichen Herzen glauben. Es umfasst Bescheidenheit und Ehrerbietung allen Menschen gegenüber, den Glauben an Gott im Menschen, Selbstbeherrschung als Toleranz, die Einheit der menschlichen Seelen in Gott, Vertrauen in Gott, und die Bereitschaft, das Geheimnis der Beziehung zu Gott zu erfahren. Wer dieses letzte Tor erreicht, verdient den Titel "İnsan-ı kâmil" (vollkommener Mensch), auch "Beytullah" (Haus Gottes) genannt.
+1. **Şeriat (Die Grundlagen):** Lerne die Basics - ehrlich leben, arbeiten, lernen, respektvoll mit anderen umgehen.
 
-### Das alevitische Sittensystem: "Eline, beline, diline sahip ol!"
+2. **Tarikat (Der spirituelle Weg):** Vertiefe dein inneres Leben - meditation, Gemeinschaft, Überwindung des Egos.
 
-Die berühmte Maxime "Kontrolliere deine Hand, deine Lende und deine Zunge" ist das prägnante und tiefgründige Kernprinzip Hacı Bektaş Velis und bildet das Fundament der alevitischen Moral und des Wertesystems. Es ist eine praktische Anleitung für ethisches Verhalten im Alltag:
+3. **Marifet (Wahre Erkenntnis):** Entwickle Weisheit und tiefes Verständnis für dich selbst und die Welt.
 
-Hände (Eline): Bedeutet, produktiv und nützlich für die Gesellschaft zu sein und Handlungen wie Mord, Diebstahl oder jegliche Form von Gewalt zu vermeiden. Es geht darum, die Hände für Gutes einzusetzen.
+4. **Hakikat (Die Wahrheit):** Erkenne die göttliche Wahrheit in dir selbst und in allem Leben.
 
-Lende (Beline): Bezieht sich auf die Kontrolle der Triebe, insbesondere sexueller Natur. Es betont Selbstbeherrschung, um Schaden für sich selbst oder andere zu vermeiden, und die Verantwortung, gut erzogene Kinder großzuziehen.
+Das Schöne daran: Jeder kann diesen Weg gehen, unabhängig von Geschlecht, Herkunft oder Bildungsstand.
 
-Zunge (Diline): Bedeutet, Lügen, böswilligen Klatsch, Verleumdung und Gerüchte zu vermeiden und stets respektvoll und bedacht zu sprechen, ohne die Würde anderer zu verletzen.
+## 5. Seine wichtigsten Weisheiten
 
-## 4. Gottesverständnis und die Einheit von Hak-Muhammet-Ali
+Hacı Bektaş Veli hinterließ uns viele inspirierende Aussprüche, die auch heute noch aktuell sind:
 
-Aleviten glauben an einen einzigen Gott, den sie mit verschiedenen Begriffen wie Hak, Allah, Hu, Hüda, Şah, Ulu oder Gerçek (Wahrheit) bezeichnen. Sie sind überzeugt, dass Gott überall zu fühlen und zu sehen ist und Göttlichkeit in allem Lebenden vorhanden ist. Im alevitischen Kosmos bilden Hak (Gott/Wahrheit), Muhammad (Weg/Sunnah) und Ali (göttliches Licht/Nūr) eine mystische Einheit von kreativen Prinzipien.
+- **"Schätzt keinen Menschen und kein Volk gering!"** - Eine klare Absage an Rassismus und Diskriminierung
+- **"Was du suchst, suche in dir selbst. Nicht in Jerusalem, nicht in Mekka."** - Wahre Spiritualität findest du in dir, nicht in heiligen Orten
+- **"Das größte Buch zum Lesen ist der Mensch selbst."** - Lerne Menschen zu verstehen und von ihnen zu lernen
 
-Es ist entscheidend zu verstehen, dass diese Einheit keine Trinität im christlichen Sinne ist; vielmehr sind Muhammad und Ali Repräsentationen des Lichts Allahs, die weder unabhängig von Gott noch separate Eigenschaften von Ihm sind. Dieses sorgfältig formulierte theologische Konzept von "Haqq-Muhammad-Ali" ist nicht nur eine Glaubensaussage, sondern ein grundlegendes Element, das das Alevitentum strategisch sowohl vom sunnitischen als auch vom schiitischen Mainstream-Islam und explizit von der christlichen Trinität unterscheidet.
+Diese Zitate zeigen: Er war seiner Zeit weit voraus und entwickelte Ideen, die wir heute als modern und fortschrittlich bezeichnen würden.
 
-## 5. Bedeutung von Wissen und Vernunft (Makalat)
+## 6. Sein Einfluss auf das Alevitentum
 
-Hacı Bektaş Veli betonte die immense Bedeutung von Wissen und Vernunft als göttliche Gaben. Sein bekanntestes Werk, das Makalat, ist ein Schlüsseltext, der mystische Themen und die "Vier Tore und Vierzig Stufen" detailliert behandelt. Aleviten glauben, dass wissenschaftliche Arbeit – sei es in den Natur- oder Geisteswissenschaften – einen Teil des Gottesgeheimnisses lüften kann und unterstützen daher wissenschaftliche Aktivitäten.
+Hacı Bektaş Veli gilt als der geistige Vater des modernen Alevitentums. Seine Lehren formten eine religiöse Bewegung, die sich durch Toleranz, Gleichberechtigung und Humanismus auszeichnet.
 
-Sein berühmter Ausspruch "Ein Weg ohne Wissenschaft endet in der Finsternis" unterstreicht die zentrale Rolle der Bildung im Alevitentum. Weitere zentrale Zitate seiner Lehren umfassen:
+Nach seinem Tod entwickelte sich der "Bektaschi-Orden" - eine religiöse Gemeinschaft, die seine Philosophie weiterführte. Diese Bewegung breitete sich weit aus: von der Türkei über den Balkan bis nach Ungarn, wo heute noch Spuren dieser Tradition zu finden sind.
 
-- "Schätzt keinen Menschen und kein Volk gering!" - Ein Kernprinzip der alevitischen Ethik, das die Ablehnung von Diskriminierung und die Förderung von Völkerverständigung untermauert
-- "Was du suchst, suche in dir selbst. Nicht in Jerusalem, nicht in Mekka." - Betonung der inneren Spiritualität und der Göttlichkeit im Menschen
-- "Meine Kaaba ist der Mensch." - Der Mensch als Zentrum des Glaubens und Ort der Gotteserfahrung
-- "Das größte Buch zum Lesen ist der Mensch selbst." - Betonung der Selbsterkenntnis als höchste Form des Wissens
+Besonders interessant: Der Orden wurde so einflussreich, dass sogar die Janitscharen - die Elitetruppen des Osmanischen Reiches - Hacı Bektaş Veli als ihren spirituellen Schutzpatron verehrten.
 
-Die Philosophie Hacı Bektaş Velis ist stark von Humanismus und Universalismus geprägt. Im Zentrum des alevitischen Glaubens steht der Mensch als eigenverantwortliches Wesen. Er lehrte, dass Unterschiede in Glaube und Herkunft unwichtig sind und alle Menschen gleichwertig sind und die gleichen Rechte haben. Die Gleichberechtigung der Geschlechter ist ein inhärenter Bestandteil der alevitischen Lehre, die sich in der gemeinsamen Teilnahme von Frauen und Männern an Gottesdiensten und in der Anerkennung der Ana (weibliche Geistliche) widerspiegelt.
+## 7. Wie wir heute von ihm erfahren
 
-## 6. Hacı Bektaş Veli und die Entwicklung des Alevitentums
+Über Hacı Bektaş Veli zu forschen ist wie Archäologie: Wir haben keine direkten Aufzeichnungen aus seinem Leben, sondern müssen aus späteren Quellen zusammensetzen, wer er war.
 
-Hacı Bektaş Veli wird weithin als der Gründer und prägende Geist des anatolischen Alevitentums angesehen. Seine Lehren, die mystische islamische Elemente mit vorislamischen schamanistischen Traditionen der Turkvölker verbinden, prägten die heterodoxe islamische Tradition, die heute als Alevitentum bekannt ist. Er spielte eine zentrale Rolle bei der Etablierung dieser Glaubensgemeinschaft in Anatolien.
+Die wichtigste Quelle ist die "Velayetname" - eine Sammlung von Geschichten und Legenden über ihn, die Jahrhunderte nach seinem Tod aufgeschrieben wurde. Diese Erzählungen vermischen historische Fakten mit spirituellen Lehren und wundersamen Begebenheiten.
 
-Obwohl das Bektaşitentum seinen Namen von Hacı Bektaş Veli ableitet, entstand der Orden als institutionalisierte Tariqa erst nach seinem Tod durch seine Schüler und Nachfolger. Die eigentliche Systematisierung erfolgte im 16. Jahrhundert unter Balım Sultan, der als "Pîr-î Sanî" (Zweiter Meister) verehrt wird.
+Für Aleviten sind diese Geschichten mehr als nur Geschichte - sie sind lebendige Inspiration und spirituelle Wahrheit, die zeigt, welche Kraft seine Lehren bis heute haben.
 
-Er ist der Namensgeber des Bektaschi-Ordens, einer religiösen Ordnung, die sich aus seiner Philosophie entwickelte. Es ist wichtig zu beachten, dass, obwohl jeder Bektaschi in der Türkei als Alevit gilt, nicht jeder Alevit ein Bektaschi ist, auch wenn alle Aleviten Hacı Bektaş Veli mit unendlicher Liebe und Respekt verehren. Der Bektaschismus verbreitete sich von Anatolien aus in den Balkan und den Nahen Osten, nach Albanien, Griechenland, Bulgarien, Bosnien, Kosovo, Mazedonien und sogar bis nach Budapest, wo das Grab von Gül Baba an diese Tradition erinnert.
+## 8. Wie Aleviten heute an ihn erinnern
 
-Das Bektaşitentum entwickelte sich zu einem der einflussreichsten Sufi-Orden des Osmanischen Reiches. Besonders bedeutsam wurde die enge Verbindung zu den Janitscharen, der Eliteeinheit der osmanischen Armee, deren spiritueller Schutzpatron Hacı Bektaş Veli war.
+Hacı Bektaş Veli ist nicht nur eine historische Figur - er lebt in den Herzen und Ritualen der Aleviten weiter.
 
-Hacı Bektaş Velis Ideale und Lehren wurden von nachfolgenden Dichtern und Mystikern aufgegriffen und verbreitet, was die orale und künstlerische Tradition des Alevitentums betont. Zu den bekanntesten gehören Yunus Emre (13. Jhd.), Pir Sultan Abdal (16. Jhd.), Şah Hatayi (16. Jhd.), Fuzuli, Kul Himmet, Virani und Yemini, die oft als die "Sieben Großen Dichter" bezeichnet werden. Ihre Dichtungen (Deyiş oder Nefes) sind zentrale Bestandteile der Cem-Zeremonien und tragen dazu bei, Hacı Bektaş Velis Philosophie und die alevitische Lehre in lebendiger und zugänglicher Form weiterzugeben.
+**Das große Festival:** Jedes Jahr im August pilgern tausende Aleviten in die türkische Stadt Hacıbektaş zu seinem Grab. Drei Tage lang wird gefeiert, getanzt, gesungen und seiner gedacht. Es ist wie ein riesiges Familienfest, bei dem Menschen aus aller Welt zusammenkommen.
 
-## 7. Quellen und historische Überlieferung
+**In den Cem-Gottesdiensten:** In den alevitischen Gottesdiensten (Cem genannt) werden seine Lehren lebendig gehalten. Männer und Frauen sitzen gleichberechtigt zusammen - genau wie er es lehrte. Sie singen spirituelle Lieder, tanzen den heiligen Semah-Tanz und erinnern sich an seine Weisheiten.
 
-Die historische Erforschung von Hacı Bektaş Veli ist durch die Quellenlage erschwert, da zeitgenössische Dokumente fehlen. Die wichtigste Quelle ist das "Menâkıbü'l-kudsiyye" von Elvan Çelebi, dem Sohn des berühmten Sufi-Dichters Âşık Paşa aus dem 14. Jahrhundert.
+**Im Alltag:** Seine drei goldenen Regeln - Hand, Lende, Zunge - sind für viele Aleviten bis heute ein praktischer Leitfaden für ein ethisches Leben.
 
-Die primäre Quelle für das Leben und Wirken von Hacı Bektaş Veli ist die Velayetname (auch Menakibname genannt), eine Sammlung von Geschichten und Legenden, die erst Jahrhunderte nach seinem Tod von einem Bektaschi-Derwisch verfasst wurde. Diese Erzählungen beschreiben seine übernatürlichen Fähigkeiten, gelehrten Worte und Wunder und sind für Aleviten von tiefer spiritueller und identitätsstiftender Bedeutung.
+## 9. Hacı Bektaş Veli in Deutschland heute
 
-Das bekanntere Werk "Vilâyetnâme-i Hacı Bektaş" oder einfach "Vilâyetnâme" enthält sowohl historische Informationen als auch die legendären Überlieferungen, die bis heute den Glauben der Alevi-Bektaşi-Gemeinschaft prägen. Diese Texte verbinden historische Persönlichkeit mit spiritueller Symbolik.
+Die Lehren von Hacı Bektaş Veli leben auch in Deutschland weiter, wo etwa 700.000 Aleviten leben.
 
-Es ist wichtig zu verstehen, dass diese Geschichten nicht als rein historische Fakten im modernen Sinne, sondern als Ausdruck der spirituellen Wahrheit und der tiefen Verehrung für ihn betrachtet werden. Die alevitische Tradition verlässt sich auf die Velayetname und ihre legendären Erzählungen, auch wenn deren nicht-historischer Charakter anerkannt wird. Für Aleviten sind die spirituelle Wahrheit, die moralischen Lehren und die inspirierende Kraft, die durch diese Geschichten vermittelt werden, von größter Bedeutung.
+**Eine bemerkenswerte Geschichte:** Als türkische Arbeiter in den 1960ern nach Deutschland kamen, versteckten viele Aleviten zunächst ihre Identität - sie hatten zu viel Diskriminierung erlebt. Erst Ende der 1980er Jahre wagten sie das "Coming-out" und gründeten Gemeinden.
 
-## 8. Hacı Bektaş Veli in der alevitischen Gemeinschaft: Rituale und Gedenken
+**Heute aktiv in der Gesellschaft:** Deutsche Aleviten engagieren sich in der Politik, im interreligiösen Dialog und in der Bildung. Sie haben sogar eigenen Religionsunterricht an deutschen Schulen eingeführt - ein Zeichen erfolgreicher Integration.
 
-Hacı Bektaş Velis bleibendes Erbe wird durch zentrale alevitische Rituale und Gedenkfeiern zelebriert und lebendig gehalten, was die praktische Anwendung seiner Lehren im Gemeinschaftsleben verdeutlicht.
+**Hacı Bektaş Velis Geist lebt weiter:** In ihrer Jugendarbeit, ihrem Einsatz gegen Diskriminierung und ihrer offenen, toleranten Haltung spiegeln sich seine humanistischen Werte wider. Sie bauen Brücken zwischen den Kulturen - genau wie er es gelehrt hätte.
 
-### Das Hacıbektaş-Festival: Ein Zentrum des Gedenkens und der Kultur
+## 10. Warum Hacı Bektaş Veli heute noch wichtig ist
 
-Jedes Jahr vom 16. bis 18. August findet in der Stadt Hacıbektaş in der Türkei das Hacıbektaş-Festival statt, eine zentrale Gedenkfeier und kulturelle Veranstaltung zu Ehren Hacı Bektaş Velis. Dieses Festival ist ein bedeutendes öffentliches Ritual für Aleviten in der Türkei und der europäischen Diaspora, das Tausende von Pilgern anzieht.
+Hacı Bektaş Veli war seiner Zeit etwa 800 Jahre voraus. Seine Ideen - Gleichberechtigung, Toleranz, Bildung für alle, Respekt vor jedem Menschen - sind heute aktueller denn je.
 
-Es umfasst traditionelle Pilgerreisen zu seinem Grab und anderen heiligen Stätten in der Umgebung (z.B. Delikli taş, Beştaşlar, Zemzem-Brunnen), wo Rituale wie das Trinken von heiligem Wasser oder das Durchkriechen von Felslöchern zur spirituellen Reinigung praktiziert werden. Das Festival ist auch eine lebendige Feier der alevitischen Kultur mit Musik, Poesie und Tanz, einschließlich öffentlicher Semah-Aufführungen.
+In einer Welt voller Konflikte und Vorurteile zeigt er uns einen anderen Weg: Einen Weg des Friedens, der Verständigung und der Menschlichkeit. Seine Botschaft ist einfach, aber kraftvoll: Das Göttliche findest du nicht in Gebäuden oder Ritualen, sondern in dir selbst und in der Art, wie du andere Menschen behandelst.
 
-Darüber hinaus dient das Festival als wichtige Plattform für politische und gesellschaftliche Anerkennung, mit Reden von Politikern und Vertretern alevitischer Organisationen, die die Sichtbarkeit der Gemeinschaft stärken. Die türkische Regierung selbst hat ein Interesse daran, das Erbe Hacı Bektaş Velis in das nationale Kulturerbe zu integrieren und unterstützt das Festival, wobei 2021 von der UNESCO zum Jahr Hacı Bektaş Velis erklärt wurde.
+Millionen von Aleviten in der Türkei, Deutschland und anderen Ländern leben heute nach seinen Prinzipien. Sie setzen sich ein für Dialog zwischen den Religionen, für Gleichberechtigung und gegen Diskriminierung. Das ist sein lebendiges Erbe.
 
-### Bedeutung in Cem-Zeremonien
-
-Die Lehren Hacı Bektaş Velis sind untrennbar mit der Cem-Zeremonie verbunden, dem zentralen Gottesdienst der Aleviten. Im Cem, das von einem Dede (männlicher Geistlicher) oder einer Ana (weibliche Geistliche) geleitet wird, kommen Männer und Frauen ohne räumliche Trennung gleichberechtigt zusammen. Hier werden gemeinsam Gebete gesprochen, spirituelle Lieder (Deyiş, Nefes) gesungen, die oft von den Sieben Großen Dichtern stammen, und der rituelle Tanz Semah aufgeführt.
-
-Hacı Bektaş Velis Betonung von "Einvernehmen" (Rızalık) ist ein Schlüsselprinzip des Cem, da gemeinschaftliches Gebet nach alevitischem Verständnis nur nach Wiedergutmachung oder Versöhnung unter den Anwesenden möglich ist.
-
-### Weitere Rituale und Gedenktage
-
-Seine Lehren beeinflussen auch andere alevitische Rituale und Gedenktage, wie das Muharrem-Fasten und den Aşure-Tag. Das Muharrem-Fasten, das zwölf Tage dauert, dient dem Gedenken an das Martyrium von Imam Hüseyin und weiteren Nachkommen der Prophetenfamilie und betont die Werte der Gerechtigkeit und Solidarität. Der anschließende Aşure-Tag symbolisiert Dankbarkeit und Gemeinschaft. Auch der Geburtstag des Heiligen Ali am 21. März wird in alevitischen Gemeinden mit Festgottesdiensten und "Muhabbet"-Zusammenkünften gefeiert.
-
-## 9. Das lebendige Erbe: Hacı Bektaş Veli für Aleviten in Deutschland
-
-Die Lehren Hacı Bektaş Velis sind für die alevitische Gemeinschaft in Deutschland von großer aktueller Bedeutung. Sie spiegeln sich in ihrer Reise von einer verborgenen Identität zu öffentlichem Engagement, ihren Beiträgen zur deutschen Gesellschaft und den anhaltenden Herausforderungen wider.
-
-### Migration und das "Coming-out" in Deutschland
-
-Aleviten kamen seit den 1960er Jahren als Arbeitsmigranten, sogenannte "Gastarbeiter", nach Deutschland. Aufgrund jahrhundertelanger Diskriminierung und Verfolgung in der Türkei praktizierten viele Aleviten zunächst "Takiya" (das Verbergen ihrer Zugehörigkeit). Erst Ende der 1980er Jahre, mit der Alevitischen Kulturwoche 1989 in Hamburg, begann das öffentliche "Coming-out" der alevitischen Identität in Deutschland, was einen Wendepunkt darstellte.
-
-### Organisation und Dachverbände
-
-Die Alevitische Gemeinde Deutschland (AABF), auch bekannt als Almanya Alevi Birlikleri Federasyonu, wurde 1989 gegründet und ist heute die größte Dachorganisation der Aleviten in Deutschland, die ca. 700.000 Angehörige in 160-164 Ortsgemeinden vertritt. Weitere wichtige Organisationen sind der Bund der Alevitischen Jugendlichen in Deutschland (BDAJ) und die Föderation der Demokratischen Aleviten (FEDA). Diese Organisationen bündeln die Potenziale der Gemeinden und unterstützen soziale Projekte vor Ort.
-
-### Politische Partizipation und Anerkennung
-
-Die AABF ist eine anerkannte Religionsgemeinschaft nach Art. 7 Abs. 3 des Grundgesetzes und vertritt die Interessen ihrer Mitglieder in der Deutschen Islamkonferenz und beim Integrationsgipfel der Bundesregierung. Ein wichtiges politisches Ziel ist die bundesweite Anerkennung als Körperschaft des öffentlichen Rechts, die bereits in Nordrhein-Westfalen (2020) und Berlin (2022) erreicht wurde. Die Aleviten gelten als gut integrierte Einwanderergruppe, die sich selbstverständlich in Politik und Gesellschaft einmischt.
-
-### Soziale und kulturelle Beiträge zur deutschen Gesellschaft
-
-Die alevitischen Gemeinden leisten vielfältige und wertvolle Beiträge zur deutschen Gesellschaft, die die humanistischen Werte Hacı Bektaş Velis widerspiegeln:
-
-Interreligiöser und Interkultureller Dialog: Sie engagieren sich aktiv im interreligiösen Dialog, insbesondere mit christlichen Kirchen, und fördern gegenseitiges Verständnis und Wertschätzung. Sie bieten Bildungs- und Beratungsangebote sowie Kultur- und Sportangebote an, die allen Menschen offenstehen, unabhängig von Herkunft und Glauben.
-
-Kinder- und Jugendarbeit: Die Jugendarbeit ist ein zentraler Schwerpunkt, mit vielfältigen Angeboten wie Kursen zur musikalischen, tänzerischen und künstlerischen Bildung (z.B. Saz-, Folklore-, Theaterkurse), Freizeitgestaltung (Ferienfreizeiten, Sportturniere), sozialer und politischer Bildung (Diskussionsabende, Seminare zu Deeskalation) sowie Engagement gegen Rassismus und Diskriminierung. Der BDAJ versteht sich als "Safe Space" für junge Aleviten, in dem ihre Identität nicht angezweifelt wird.
-
-Bildung und Wissenschaft: Seit 2002/2006 gibt es alevitischen Religionsunterricht an öffentlichen Schulen in mittlerweile neun Bundesländern. Dieser Unterricht zielt darauf ab, die Entwicklung einer alevitischen Identität in einem interreligiösen und interkulturellen Umfeld zu unterstützen und die Schüler zu eigenverantwortlichem Handeln zu motivieren. Die Etablierung alevitischer Theologie an deutschen Universitäten ist ein bedeutendes politisches Ziel, um die Lehre und Forschung zu stärken.
-
-Soziale Dienste und Integration: Gemeinden bieten soziale, seelsorgerische und karitative Dienste an, einschließlich Unterstützung für Senioren, Integrationskurse, Nachhilfeunterricht und humanitäre Hilfe durch Organisationen wie HIZIR.
-
-### Herausforderungen
-
-Trotz der Erfolge stehen Aleviten in Deutschland weiterhin vor Herausforderungen:
-
-- Diskriminierung und Vorurteile: Alte Vorurteile aus der Türkei werden in Deutschland übernommen, was zu Diskriminierung führt. Auch die pauschale Zuordnung zum Islam aus Unkenntnis kann zur Bedrohung führen.
-- Fehlende akademische Theologie: Es gibt einen Mangel an ausgebildeten alevitischen Universitätstheologen und eine Notwendigkeit zur Dogmatisierung und wissenschaftlichen Abgrenzung der alevitischen Religion.
-- Umgang mit Geschichte und Trauma: Die lange Geschichte der Verfolgung führt oft dazu, dass die ältere Generation über ihre Geschichte schweigt, was die Entwicklung einer Erinnerungskultur für die jüngere Generation erschwert.
-
-## 10. Fazit: Hacı Bektaş Veli – Ein zeitloses Vorbild für Menschlichkeit und Frieden
-
-Hacı Bektaş Velis Leben und Lehren sind ein leuchtendes Beispiel für Humanismus, Toleranz, soziale Gerechtigkeit und die Suche nach menschlicher Vervollkommnung. Seine Betonung der inneren Spiritualität, der Gleichheit aller Menschen und der Verantwortung des Einzelnen für sein Handeln bleibt eine Inspiration für Aleviten und darüber hinaus.
-
-Hacı Bektaş Veli steht für eine Form des Islam, die Spiritualität mit sozialer Reform verbindet. Seine Lehren schufen eine Alternative zum orthodoxen Islam, die Mystik, Humanismus und Volksreligiosität miteinander verschmolz. Seine Vision eines toleranten, humanistischen und geschlechtergerechten Islam bietet auch in der modernen Welt wichtige Impulse für ein friedliches Zusammenleben der Religionen.
-
-Sein Erbe ist nicht nur in den Cem-Häusern und Gedenkfeiern lebendig, sondern auch im aktiven gesellschaftlichen Engagement der alevitischen Gemeinden in Deutschland. Sie setzen sich für Vielfalt, gegen Diskriminierung und für ein friedliches Miteinander ein, getragen von den Prinzipien, die Hacı Bektaş Veli vor Jahrhunderten lehrte.
-
-Das jährliche Gedenkfest in Hacıbektaş zeigt, wie lebendig seine Tradition geblieben ist und wie seine Botschaft der Liebe und Toleranz Menschen verschiedener Herkunft und verschiedenen Glaubens zusammenführt. Heute wird sein Erbe sowohl in der Türkei als auch in Deutschland von Millionen von Aleviten und Bektaşis gelebt.
-
-Hacı Bektaş Veli verkörpert ein zeitloses Ideal der Menschlichkeit, das in einer zunehmend komplexen Welt Orientierung und Hoffnung bietet. Seine Botschaft, dass wahre Erkenntnis und Göttlichkeit im Menschen selbst zu finden sind, ermutigt zur Selbstreflexion und zum Aufbau einer gerechteren und liebevolleren Gesellschaft.
-
-Seine zentralen Lehren wie "Schätzt keinen Menschen und kein Volk gering!", "Ein Weg ohne Wissenschaft endet in der Finsternis" und "Meine Kaaba ist der Mensch" bleiben aktuell und relevant für alle, die nach Wahrheit, Gerechtigkeit und menschlicher Vervollkommnung streben.`,
+Hacı Bektaş Veli erinnert uns daran: Egal woher wir kommen, welchen Glauben wir haben oder welche Sprache wir sprechen - wir sind alle Menschen. Und das ist das Wichtigste von allem.`,
         tr: `# Hacı Bektaş Veli: Bektaşiliğin Kurucusu
 
 ## 1. Giriş: Hacı Bektaş Veli - Anadolu Maneviyatının Merkezi Figürü
@@ -478,7 +419,7 @@ export default async function ArticleDetailPage({ params }: ArticleDetailPagePro
                 <div key={index}>
                   <h2 className="text-2xl font-bold text-gray-900 mt-6 mb-3">{paragraph.substring(3)}</h2>
                   <div className="flex justify-center my-8">
-                    <div className="article-image-card bg-white rounded-lg shadow-md p-6 border border-gray-200 max-w-3xl">
+                    <div className="article-image-container max-w-3xl">
                       <Image
                         src="/hacibektasveli01.png"
                         alt="Hacı Bektaş Veli Portrait"
@@ -498,7 +439,7 @@ export default async function ArticleDetailPage({ params }: ArticleDetailPagePro
                 <div key={index}>
                   <h2 className="text-2xl font-bold text-gray-900 mt-6 mb-3">{paragraph.substring(3)}</h2>
                   <div className="flex justify-center my-8">
-                    <div className="article-image-card bg-white rounded-lg shadow-md p-6 border border-gray-200 max-w-md">
+                    <div className="article-image-container max-w-md">
                       <Image
                         src="/hz-ali-arabca.png"
                         alt="Hz. Ali - Arabische Kalligrafie"
@@ -529,7 +470,7 @@ export default async function ArticleDetailPage({ params }: ArticleDetailPagePro
                 <div key={index}>
                   <p className="text-gray-700 mb-4 leading-relaxed">{paragraph}</p>
                   <div className="flex justify-center my-12">
-                    <div className="article-image-card bg-white rounded-lg shadow-lg p-6 border border-gray-200 max-w-3xl">
+                    <div className="article-image-container max-w-3xl">
                       <Image
                         src="/hacibektasiveli-turbesi.jpg"
                         alt="Hacı Bektaş Veli Türbesi"
@@ -552,7 +493,7 @@ export default async function ArticleDetailPage({ params }: ArticleDetailPagePro
                 <div key={index}>
                   <p className="text-gray-700 mb-4 leading-relaxed">{paragraph}</p>
                   <div className="flex justify-center my-10">
-                    <div className="article-image-card bg-white rounded-lg shadow-lg p-6 border border-gray-200 max-w-2xl">
+                    <div className="article-image-container max-w-2xl">
                       <Image
                         src="/hacibektasveli1.jpg"
                         alt="Hacı Bektaş Veli Darstellung"
@@ -575,7 +516,7 @@ export default async function ArticleDetailPage({ params }: ArticleDetailPagePro
                 <div key={index}>
                   <p className="text-gray-700 mb-4 leading-relaxed">{paragraph}</p>
                   <div className="flex justify-center my-10">
-                    <div className="article-image-card bg-white rounded-lg shadow-lg p-6 border border-gray-200 max-w-3xl">
+                    <div className="article-image-container max-w-3xl">
                       <Image
                         src="/Muhammed_(saw)_et_sa_famille.jpg"
                         alt="Die heilige Familie - Ehl-i Beyt"
@@ -598,7 +539,7 @@ export default async function ArticleDetailPage({ params }: ArticleDetailPagePro
                 <div key={index}>
                   <p className="text-gray-700 mb-4 leading-relaxed">{paragraph}</p>
                   <div className="flex justify-center my-12">
-                    <div className="article-image-card bg-white rounded-lg shadow-lg p-6 border border-gray-200 max-w-2xl">
+                    <div className="article-image-container max-w-2xl">
                       <Image
                         src="/MEZARGEY-IMAM-ALI.jpg"
                         alt="Grab von Imam Ali"

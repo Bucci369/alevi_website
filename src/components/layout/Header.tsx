@@ -15,8 +15,20 @@ interface HeaderProps {
 export function Header({ locale }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const [isScrolled, setIsScrolled] = useState(false)
   const pathname = usePathname()
   const t = translations[locale]
+
+  // Scroll-Detection für Header-Styling
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0)
+    }
+
+    handleScroll() // Initial check
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   // Funktion um die aktuelle Seite in der anderen Sprache zu bekommen
   const getLocalizedPath = (newLocale: Locale) => {
@@ -68,12 +80,19 @@ export function Header({ locale }: HeaderProps) {
     },
     { name: t.nav.activities, href: `/${locale}/aktivitaeten` },
     { name: t.nav.articles, href: `/${locale}/artikel` },
+    { name: t.nav.children, href: `/${locale}/kinder` },
     { name: t.nav.membership, href: `/${locale}/mitglied-werden` },
     { name: t.nav.contact, href: `/${locale}/kontakt` }
   ]
 
   return (
-    <header className="bg-white shadow-sm border-b">
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
+        isScrolled 
+          ? 'bg-white/80 backdrop-blur-lg shadow-lg border-b border-gray-200/50' 
+          : 'bg-white shadow-sm border-b border-gray-200'
+      }`}
+    >
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo - ganz links */}
@@ -181,7 +200,7 @@ export function Header({ locale }: HeaderProps) {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden border-t bg-white">
+          <div className="lg:hidden border-t bg-white/85 backdrop-blur-lg">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
                 <div key={item.name}>

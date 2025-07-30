@@ -1,5 +1,6 @@
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { ScrollToTop } from '@/components/ui/ScrollToTop'
 import { Locale } from '@/types'
 import { locales } from '@/lib/i18n/config'
 
@@ -21,10 +22,11 @@ export default async function LocaleLayout({
   return (
     <div className="min-h-screen flex flex-col">
       <Header locale={locale} />
-      <main className="flex-grow">
+      <main className="flex-grow" id="main-content">
         {children}
       </main>
       <Footer locale={locale} />
+      <ScrollToTop />
     </div>
   )
 }
