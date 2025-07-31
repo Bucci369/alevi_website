@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Typewriter } from "@/components/ui/typewriter-text";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 interface AuroraBackgroundDemoProps {
   locale: 'de' | 'tr';
@@ -13,24 +14,31 @@ export function AuroraBackgroundDemo({ locale }: AuroraBackgroundDemoProps) {
   return (
     <AuroraBackground>
       <div className="relative flex flex-col gap-4 items-center justify-center px-4">
-        <div className="text-3xl md:text-7xl font-bold dark:text-white text-center">
-          <Typewriter
-            text={locale === 'de' ? 
-              'Willkommen\nbei der Alevitischen\nGemeinde Dortmund e.V.' : 
-              'Hoş Geldiniz\nDortmund\nAlevi Cemaati'
+        <ScrollReveal animationType="fadeUp" delay={200}>
+          <div className="text-3xl md:text-7xl font-bold dark:text-white text-center">
+            <Typewriter
+              text={locale === 'de' ? 
+                'Willkommen\nbei der Alevitischen\nGemeinde Dortmund e.V.' : 
+                'Hoş Geldiniz\nDortmund\nAlevi Cemaati'
+              }
+              speed={100}
+              loop={false}
+              className="text-3xl md:text-7xl font-bold dark:text-white text-center whitespace-pre-line"
+            />
+          </div>
+        </ScrollReveal>
+        
+        <ScrollReveal animationType="fadeUp" delay={600}>
+          <div className="font-extralight text-base md:text-4xl dark:text-neutral-200 py-4 text-center max-w-4xl">
+            {locale === 'de' 
+              ? 'Eine Gemeinschaft der Vielfalt, des Respekts und der kulturellen Bereicherung.'
+              : 'Çeşitlilik, saygı ve kültürel zenginlik topluluğu.'
             }
-            speed={100}
-            loop={false}
-            className="text-3xl md:text-7xl font-bold dark:text-white text-center whitespace-pre-line"
-          />
-        </div>
-        <div className="font-extralight text-base md:text-4xl dark:text-neutral-200 py-4 text-center max-w-4xl">
-          {locale === 'de' 
-            ? 'Eine Gemeinschaft der Vielfalt, des Respekts und der kulturellen Bereicherung.'
-            : 'Çeşitlilik, saygı ve kültürel zenginlik topluluğu.'
-          }
-        </div>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 group">
+          </div>
+        </ScrollReveal>
+        
+        <ScrollReveal animationType="fadeUp" delay={1000}>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 group">
           <Link 
             href={`/${locale}/ueber-uns`} 
             className="bg-black dark:bg-white border border-black dark:border-white rounded-full w-fit text-white dark:text-black px-6 py-3 font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg
@@ -50,6 +58,7 @@ export function AuroraBackgroundDemo({ locale }: AuroraBackgroundDemoProps) {
             {locale === 'de' ? 'Mitglied werden' : 'Üye Ol'}
           </Link>
         </div>
+        </ScrollReveal>
       </div>
     </AuroraBackground>
   );

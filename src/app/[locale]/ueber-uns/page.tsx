@@ -1,5 +1,7 @@
 import { Locale } from '@/types'
 import { translations } from '@/lib/i18n/config'
+import { Counter } from '@/components/ui/Counter'
+import { ScrollReveal } from '@/components/ui/ScrollReveal'
 
 interface AboutPageProps {
   params: Promise<{ locale: Locale }>
@@ -20,19 +22,20 @@ export default async function AboutPage({ params }: AboutPageProps) {
 
   const stats = [
     { 
-      number: '400+', 
-      label: locale === 'de' ? 'Mitgliedsfamilien' : 'Üye Aileler'
+      number: 400, 
+      label: locale === 'de' ? 'Mitgliedsfamilien' : 'Üye Aileler',
+      suffix: '+'
     },
     { 
-      number: '1988', 
+      number: 1988, 
       label: locale === 'de' ? 'Gründungsjahr' : 'Kuruluş Yılı'
     },
     { 
-      number: '1.000', 
+      number: 1000, 
       label: locale === 'de' ? 'Alevitische Familien in Dortmund' : 'Dortmund\'da Alevi Aileler'
     },
     { 
-      number: '5.000', 
+      number: 5000, 
       label: locale === 'de' ? 'Aleviten in Dortmund' : 'Dortmund\'da Aleviler'
     }
   ]
@@ -52,21 +55,22 @@ export default async function AboutPage({ params }: AboutPageProps) {
         </p>
       </section>
 
-      {/* Stats Section - gleicher Stil wie vorher */}
-      <section className="py-16">
+      {/* Stats Section mit animierten Countern */}
+      <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl font-bold text-gray-900 mb-3">
-                  {stat.number}
-                </div>
-                <div className="text-gray-600 font-medium">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
+          <ScrollReveal animationType="fadeUp" delay={200}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {stats.map((stat, index) => (
+                <Counter
+                  key={index}
+                  end={stat.suffix ? `${stat.number}+` : stat.number}
+                  label={stat.label}
+                  duration={2500}
+                  delay={index * 200}
+                />
+              ))}
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
