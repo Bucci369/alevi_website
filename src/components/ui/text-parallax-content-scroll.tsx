@@ -34,7 +34,7 @@ export const TextParallaxContentExample = () => {
 
 const IMG_PADDING = 12;
 
-const TextParallaxContent = ({ imgUrl, subheading, heading, children }) => {
+const TextParallaxContent = ({ imgUrl, subheading, heading, children }: any) => {
   return (
     <div
       style={{
