@@ -16,11 +16,14 @@ export function Header({ locale }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isHydrated, setIsHydrated] = useState(false)
   const pathname = usePathname()
   const t = translations[locale]
 
-  // Scroll-Detection für Header-Styling
+  // Hydration-safe scroll detection
   useEffect(() => {
+    setIsHydrated(true)
+    
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0)
     }
@@ -87,9 +90,11 @@ export function Header({ locale }: HeaderProps) {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
-        isScrolled 
-          ? 'bg-white/80 backdrop-blur-lg shadow-lg' 
-          : 'bg-white/90 backdrop-blur-sm shadow-sm'
+        !isHydrated
+          ? 'bg-white/95 backdrop-blur-sm shadow-sm' // Default state for SSR and initial render
+          : isScrolled 
+            ? 'bg-white/95 backdrop-blur-lg shadow-lg' 
+            : 'bg-white/95 backdrop-blur-sm shadow-sm'
       }`}
     >
       <div className="w-full px-4 sm:px-6 lg:px-8">
@@ -200,7 +205,7 @@ export function Header({ locale }: HeaderProps) {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="2xl:hidden border-t bg-white/85 backdrop-blur-lg">
+          <div className="2xl:hidden border-t bg-white/95 backdrop-blur-lg">
             <div className="px-4 pt-2 pb-3 divide-y divide-black">
               {navigation.map((item) => (
                 <div key={item.name} className="py-2">
