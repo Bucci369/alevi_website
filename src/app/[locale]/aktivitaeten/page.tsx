@@ -219,56 +219,25 @@ export default async function ActivitiesPage({ params }: ActivitiesPageProps) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="text-black py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            {t.events.title}
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-200">
-            {locale === 'de' 
-              ? 'Entdecken Sie unsere vielfältigen Veranstaltungen'
-              : 'Çeşitli etkinliklerimizi keşfedin'
-            }
-          </p>
-        </div>
-      </section>
-
-      {/* Filter Section */}
-      <section className="py-8 bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <span className="text-gray-700 font-medium">
-                {locale === 'de' ? 'Alle Veranstaltungen' : 'Tüm Etkinlikler'}
-              </span>
-            </div>
-            
-            <div className="flex items-center space-x-4">
-              {/* Search */}
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder={locale === 'de' ? 'Veranstaltung suchen...' : 'Etkinlik ara...'}
-                  className="pl-4 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-transparent"
-                />
-              </div>
-              
-              {/* Filter */}
-              <button className="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
-                <span>{locale === 'de' ? 'Filter' : 'Filtre'}</span>
-              </button>
-            </div>
-          </div>
-        </div>
+      {/* Hero Section - einheitlicher Stil */}
+      <section className="py-16 text-center">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-black">
+          {locale === 'de' ? 'Aktivitäten' : 'Etkinlikler'}
+        </h1>
+        <p className="text-xl md:text-2xl text-gray-700 mb-16">
+          {locale === 'de' 
+            ? 'Entdecken Sie unsere vielfältigen Veranstaltungen'
+            : 'Çeşitli etkinliklerimizi keşfedin'
+          }
+        </p>
       </section>
 
       {/* Upcoming Events */}
       {upcomingEvents.length > 0 && (
-        <section className="py-16">
+        <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-8">
-              {t.events.upcoming}
+              {locale === 'de' ? 'Kommende Veranstaltungen' : 'Yaklaşan Etkinlikler'}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {upcomingEvents.map((event) => (
@@ -281,10 +250,10 @@ export default async function ActivitiesPage({ params }: ActivitiesPageProps) {
 
       {/* Past Events */}
       {pastEvents.length > 0 && (
-        <section className="py-16 bg-white">
+        <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-8">
-              {t.events.past}
+              {locale === 'de' ? 'Vergangene Veranstaltungen' : 'Geçmiş Etkinlikler'}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {pastEvents.map((event) => (
@@ -296,13 +265,13 @@ export default async function ActivitiesPage({ params }: ActivitiesPageProps) {
       )}
 
       {/* Event Categories */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             {locale === 'de' ? 'Veranstaltungskategorien' : 'Etkinlik Kategorileri'}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white rounded-lg shadow-md p-6 text-center">
+            <div className="text-center p-6">
               <h3 className="font-semibold text-gray-900 mb-2">
                 {locale === 'de' ? 'Religiöse Feiern' : 'Dini Kutlamalar'}
               </h3>
@@ -311,7 +280,7 @@ export default async function ActivitiesPage({ params }: ActivitiesPageProps) {
               </p>
             </div>
             
-            <div className="bg-white rounded-lg shadow-md p-6 text-center">
+            <div className="text-center p-6">
               <h3 className="font-semibold text-gray-900 mb-2">
                 {locale === 'de' ? 'Kulturelle Events' : 'Kültürel Etkinlikler'}
               </h3>
@@ -320,7 +289,7 @@ export default async function ActivitiesPage({ params }: ActivitiesPageProps) {
               </p>
             </div>
             
-            <div className="bg-white rounded-lg shadow-md p-6 text-center">
+            <div className="text-center p-6">
               <h3 className="font-semibold text-gray-900 mb-2">
                 {locale === 'de' ? 'Gemeinschaftsaktivitäten' : 'Topluluk Faaliyetleri'}
               </h3>
@@ -329,7 +298,7 @@ export default async function ActivitiesPage({ params }: ActivitiesPageProps) {
               </p>
             </div>
             
-            <div className="bg-white rounded-lg shadow-md p-6 text-center">
+            <div className="text-center p-6">
               <h3 className="font-semibold text-gray-900 mb-2">
                 {locale === 'de' ? 'Bildungsangebote' : 'Eğitim Programları'}
               </h3>

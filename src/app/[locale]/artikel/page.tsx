@@ -65,28 +65,26 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const dateLocale = locale === 'de' ? de : tr
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="text-black py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            {locale === 'de' ? 'Artikel & Beiträge' : 'Makaleler & Yazılar'}
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-200">
-            {locale === 'de' 
-              ? 'Einblicke in die alevitische Lehre, Geschichte und Kultur'
-              : 'Alevi öğretisi, tarihi ve kültürüne dair görüşler'
-            }
-          </p>
-        </div>
+    <div className="min-h-screen bg-white">
+      {/* Hero Section - einheitlicher Stil */}
+      <section className="py-16 text-center bg-white">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-black">
+          {locale === 'de' ? 'Artikel & Beiträge' : 'Makaleler & Yazılar'}
+        </h1>
+        <p className="text-xl md:text-2xl text-gray-700 mb-16">
+          {locale === 'de' 
+            ? 'Einblicke in die alevitische Lehre, Geschichte und Kultur'
+            : 'Alevi öğretisi, tarihi und kültürüne dair görüşler'
+          }
+        </p>
       </section>
 
       {/* Articles Grid */}
-      <section className="py-16">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mobile-card-grid">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {articles.map((article) => (
-              <article key={article.id} className="mobile-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-200">
+              <article key={article.id} className="bg-white rounded-lg shadow-md overflow-hidden transition-shadow duration-300 border border-gray-200">
                 {/* Article Image */}
                 <div className="relative h-48 overflow-hidden">
                   <Image
@@ -144,7 +142,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                   {/* Read More Button */}
                   <Link
                     href={`/${locale}/artikel/${article.id}`}
-                    className="inline-flex items-center px-4 py-2 bg-gray-800 text-white text-sm font-medium rounded-md hover:bg-gray-700 transition-colors"
+                    className="inline-flex items-center px-4 py-2 bg-gray-800 text-white text-sm font-medium rounded-md"
                   >
                     {locale === 'de' ? 'Weiterlesen' : 'Devamını Oku'} →
                   </Link>

@@ -86,31 +86,29 @@ export default async function MembershipPage({ params }: MembershipPageProps) {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="text-black py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            {locale === 'de' ? 'Mitglied werden' : 'Üye Ol'}
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-200">
-            {locale === 'de' 
-              ? 'Werden Sie Teil unserer lebendigen alevitischen Gemeinschaft in Dortmund'
-              : 'Dortmund\'daki canlı Alevi topluluğumuzun bir parçası olun'
-            }
-          </p>
-        </div>
+    <div className="min-h-screen bg-white">
+      {/* Hero Section - einheitlicher Stil */}
+      <section className="py-16 text-center bg-white">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-black">
+          {locale === 'de' ? 'Mitglied werden' : 'Üye Ol'}
+        </h1>
+        <p className="text-xl md:text-2xl text-gray-700 mb-16">
+          {locale === 'de' 
+            ? 'Werden Sie Teil unserer lebendigen alevitischen Gemeinschaft in Dortmund'
+            : 'Dortmund\'daki canlı Alevi topluluğumuzun bir parçası olun'
+          }
+        </p>
       </section>
 
       {/* Membership Benefits */}
-      <section className="py-16">
+      <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
             {locale === 'de' ? 'Ihre Vorteile als Mitglied' : 'Üye Olarak Avantajlarınız'}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {membershipBenefits.map((benefit, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+              <div key={index} className="p-6 border border-gray-200 rounded-lg">
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">
                   {benefit.title[locale]}
                 </h3>
@@ -131,7 +129,7 @@ export default async function MembershipPage({ params }: MembershipPageProps) {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {membershipFees.map((fee, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-6 text-center border border-gray-200">
+              <div key={index} className="bg-white rounded-lg p-6 text-center border border-gray-200">
                 <div className="text-3xl font-bold text-gray-900 mb-3">
                   {fee.amount}
                 </div>
@@ -156,7 +154,7 @@ export default async function MembershipPage({ params }: MembershipPageProps) {
       </section>
 
       {/* How to Join */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
             {locale === 'de' ? 'So werden Sie Mitglied' : 'Nasıl Üye Olursunuz'}
@@ -185,7 +183,7 @@ export default async function MembershipPage({ params }: MembershipPageProps) {
           <h2 className="text-3xl font-bold text-gray-900 mb-8">
             {locale === 'de' ? 'Mitgliedschaftsantrag' : 'Üyelik Başvurusu'}
           </h2>
-          <div className="bg-gray-50 rounded-lg p-8 border border-gray-200">
+          <div className="bg-white rounded-lg p-8 border border-gray-200">
             <p className="text-lg text-gray-700 mb-6">
               {locale === 'de'
                 ? 'Laden Sie hier das Mitgliedschaftsformular herunter und werden Sie Teil unserer Gemeinschaft.'
@@ -196,7 +194,7 @@ export default async function MembershipPage({ params }: MembershipPageProps) {
               href="/Mitgliedschaftsantrag-Alevitische-Gemeinde-Dortmund.pdf" 
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-700 transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-gray-800 text-white font-semibold rounded-lg"
             >
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
