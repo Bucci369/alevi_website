@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Event, Locale } from '@/types'
 import { format } from 'date-fns'
 import { de, tr } from 'date-fns/locale'
@@ -31,11 +32,19 @@ export function EventCard({ event, locale }: EventCardProps) {
         {/* Category Color Strip - now gray */}
         <div className="h-2 w-full bg-gray-600" />
         
-        {/* Event Image Placeholder */}
-        <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-          <div className="w-16 h-16 bg-gray-400 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-2xl">E</span>
-          </div>
+        {/* Event Image */}
+        <div className="h-48 relative overflow-hidden">
+          <Image
+            src={
+              event.slug === 'hizir-cemi' ? `/hizir-cemi.jpg` :
+              event.slug === 'hizir-orucu' ? `/hizir-orucu.jpeg` :
+              `/${event.slug}.png`
+            }
+            alt={title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
         </div>
       </div>
 

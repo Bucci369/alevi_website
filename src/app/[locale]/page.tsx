@@ -2,6 +2,7 @@ import { EventCard } from '@/components/ui/EventCard'
 import { AuroraBackgroundDemo } from '@/components/ui/aurora-background-demo'
 import { Locale, Event } from '@/types'
 import { translations } from '@/lib/i18n/config'
+import Link from 'next/link'
 
 interface HomePageProps {
   params: Promise<{ locale: Locale }>
@@ -160,9 +161,9 @@ export default async function HomePage({ params }: HomePageProps) {
             <h2 className="text-3xl font-bold text-gray-900">
               {t.events.upcoming}
             </h2>
-            <button className="text-gray-600 hover:text-gray-700 font-medium">
+            <Link href={`/${locale}/aktivitaeten`} className="text-gray-600 hover:text-gray-700 font-medium transition-colors">
               {t.events.allEvents} →
-            </button>
+            </Link>
           </div>
 
           <div className="mobile-card-grid">
