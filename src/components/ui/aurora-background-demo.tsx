@@ -14,26 +14,17 @@ export function AuroraBackgroundDemo({ locale }: AuroraBackgroundDemoProps) {
   return (
     <AuroraBackground>
       <div className="relative flex flex-col gap-4 items-center justify-center px-4">
-        <ScrollReveal animationType="fadeUp" delay={200}>
-          <div className="text-3xl md:text-7xl font-bold dark:text-white text-center">
-            <Typewriter
-              text={locale === 'de' ? 
-                'Willkommen\nbei der Alevitischen\nGemeinde Dortmund e.V.' : 
-                'Hoş Geldiniz\nDortmund\nAlevi Cemaati'
-              }
-              speed={100}
-              loop={false}
-              className="text-3xl md:text-7xl font-bold dark:text-white text-center whitespace-pre-line"
-            />
-          </div>
-        </ScrollReveal>
-        
         <ScrollReveal animationType="fadeUp" delay={600}>
-          <div className="font-extralight text-base md:text-4xl dark:text-neutral-200 py-4 text-center max-w-4xl">
-            {locale === 'de' 
-              ? 'Eine Gemeinschaft der Vielfalt, des Respekts und der kulturellen Bereicherung.'
-              : 'Çeşitlilik, saygı ve kültürel zenginlik topluluğu.'
-            }
+          <div className="text-2xl md:text-5xl font-semibold dark:text-neutral-200 py-4 text-center max-w-4xl">
+            <Typewriter
+              text={locale === 'de' 
+                ? 'Eine Gemeinschaft der Vielfalt, des Respekts und der kulturellen Bereicherung.'
+                : 'Çeşitlilik, saygı ve kültürel zenginlik topluluğu.'
+              }
+              speed={50}
+              loop={false}
+              className="text-2xl md:text-5xl font-semibold dark:text-neutral-200 text-center"
+            />
           </div>
         </ScrollReveal>
         

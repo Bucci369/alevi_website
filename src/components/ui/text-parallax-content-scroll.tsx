@@ -71,19 +71,19 @@ export const TextParallaxContentExample = () => {
           </p>
           <div className="mb-8">
             <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-              ✅ Jugendarbeit und Bildungsprogramme
+              ● Jugendarbeit und Bildungsprogramme
             </div>
             <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-              ✅ Interreligiöser Dialog
+              ● Interreligiöser Dialog
             </div>
             <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-              ✅ Kulturelle Veranstaltungen
+              ● Kulturelle Veranstaltungen
             </div>
             <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-              ✅ Soziale Projekte
+              ● Soziale Projekte
             </div>
             <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-              ✅ Gemeinschaftszentrum erweitern
+              ● Gemeinschaftszentrum erweitern
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4">

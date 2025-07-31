@@ -2,6 +2,8 @@ import { Locale } from '@/types'
 import Link from 'next/link'
 import { ReligiousTimeline } from '@/components/ui/religious-timeline'
 import { religiousTimelineData } from '@/components/ui/religious-timeline-data'
+import { Counter } from '@/components/ui/Counter'
+import { ScrollReveal } from '@/components/ui/ScrollReveal'
 
 interface FaithPageProps {
   params: Promise<{ locale: Locale }>
@@ -96,20 +98,24 @@ export default async function FaithPage({ params }: FaithPageProps) {
 
   const statistics = [
     { 
-      number: '700.000-800.000', 
-      label: { de: 'Aleviten in Deutschland', tr: 'Almanya\'da Aleviler' }
+      number: 7000000, 
+      label: { de: 'Aleviten in Deutschland', tr: 'Almanya\'da Aleviler' },
+      displayAs: '700.000+'
     },
     { 
-      number: '10-25 Mio.', 
-      label: { de: 'Aleviten in der Türkei', tr: 'Türkiye\'de Aleviler' }
+      number: 15000000, 
+      label: { de: 'Aleviten in der Türkei', tr: 'Türkiye\'de Aleviler' },
+      displayAs: '15.000.000+'
     },
     { 
-      number: '13. Jhd.', 
-      label: { de: 'Gründung durch Haci Bektasch Veli', tr: 'Hacı Bektaş Veli Tarafından Kuruluş' }
+      number: 13, 
+      label: { de: 'Gründung durch Haci Bektasch Veli', tr: 'Hacı Bektaş Veli Tarafından Kuruluş' },
+      displayAs: '13. Jhd.'
     },
     { 
-      number: '1989', 
-      label: { de: 'Ende der Takiya in Deutschland', tr: 'Almanya\'da Takiye\'nin Sonu' }
+      number: 1989, 
+      label: { de: 'Ende der Takiya in Deutschland', tr: 'Almanya\'da Takiye\'nin Sonu' },
+      displayAs: '1989'
     }
   ]
 
@@ -151,16 +157,21 @@ export default async function FaithPage({ params }: FaithPageProps) {
       <ReligiousTimeline data={religiousTimelineData} locale={locale} />
 
       {/* Statistics Section */}
-      <section className="py-16">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {statistics.map((stat, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md p-6 text-center">
-                <div className="text-3xl font-bold text-gray-900 mb-2">{stat.number}</div>
-                <div className="text-gray-600">{stat.label[locale]}</div>
-              </div>
-            ))}
-          </div>
+          <ScrollReveal animationType="fadeUp" delay={200}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {statistics.map((stat, index) => (
+                <Counter
+                  key={index}
+                  end={stat.displayAs}
+                  label={stat.label[locale]}
+                  duration={2500}
+                  delay={index * 200}
+                />
+              ))}
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 

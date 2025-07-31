@@ -56,12 +56,12 @@ export default async function ContactPage({ params }: ContactPageProps) {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="text-black py-16">
+      <section className="text-black py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             {t.contact.title}
           </h1>
-          <p className="text-xl md:text-2xl text-gray-200">
+          <p className="text-xl md:text-2xl text-gray-700">
             {locale === 'de' 
               ? 'Wir freuen uns auf Ihre Nachricht und stehen Ihnen gerne zur Verfügung'
               : 'Mesajınızı dört gözle bekliyoruz ve size yardımcı olmaktan memnuniyet duyarız'
@@ -141,7 +141,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
             {locale === 'de' ? 'Kontakt & Anfahrt' : 'İletişim & Ulaşım'}
           </h2>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
             {/* Contact Form */}
             <div className="order-2 lg:order-1">
               <ContactForm locale={locale} />
@@ -149,20 +149,36 @@ export default async function ContactPage({ params }: ContactPageProps) {
 
             {/* Map */}
             <div className="order-1 lg:order-2">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                {locale === 'de' ? 'So finden Sie uns' : 'Bizi Nasıl Bulursunuz'}
-              </h3>
-              <div className="maps-container bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
-                <div className="h-80">
-                  <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2480.7494382826726!2d7.476085276892533!3d51.55449337182392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b9109e3c22aa83%3A0xc529c9fdfe74e731!2sAlevitische%20Gemeinde%20Dortmund%20e.V.!5e0!3m2!1sde!2sde!4v1753868715386!5m2!1sde!2sde" 
-                    width="100%" 
-                    height="100%" 
-                    style={{border: 0}} 
-                    allowFullScreen
-                    loading="lazy" 
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
+              <div className="maps-container bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden h-full">
+                <div className="h-96 w-full bg-gray-100 relative">
+                  {/* Alternative: OpenStreetMap or static map */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center p-6">
+                      <div className="mb-4">
+                        <svg className="w-16 h-16 mx-auto text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                        {locale === 'de' ? 'Standort' : 'Konum'}
+                      </h3>
+                      <p className="text-gray-600 mb-4">
+                        Bayrische Str. 113<br />
+                        44339 Dortmund
+                      </p>
+                      <a 
+                        href="https://maps.google.com/maps?q=Bayrische+Str.+113,+44339+Dortmund"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+                      >
+                        <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                        </svg>
+                        {locale === 'de' ? 'In Google Maps öffnen' : 'Google Maps\'te aç'}
+                      </a>
+                    </div>
+                  </div>
                 </div>
                 <div className="p-6">
                   <h4 className="text-lg font-semibold text-gray-900 mb-3">
