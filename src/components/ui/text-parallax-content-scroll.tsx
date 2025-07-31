@@ -1,34 +1,110 @@
 "use client";
 
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import React, { useRef, useEffect } from "react";
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import { FiArrowUpRight } from "react-icons/fi";
 
+// Custom smooth scroll hook
+const useSmoothScroll = () => {
+  useEffect(() => {
+    let isScrolling = false;
+    let scrollEndTimer: NodeJS.Timeout;
+
+    const smoothScrollHandler = (e: WheelEvent) => {
+      e.preventDefault();
+      
+      const delta = e.deltaY;
+      const scrollAmount = delta * 1.5; // Adjust scroll sensitivity
+      
+      // Clear the scrolling end timer
+      clearTimeout(scrollEndTimer);
+      
+      // Smooth scroll animation
+      const currentScroll = window.pageYOffset;
+      const targetScroll = currentScroll + scrollAmount;
+      
+      // Use requestAnimationFrame for smooth animation
+      const animateScroll = (start: number, end: number, duration: number) => {
+        const startTime = performance.now();
+        
+        const animate = (currentTime: number) => {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          
+          // Easing function for smooth animation
+          const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+          
+          const currentPosition = start + (end - start) * easeOutCubic;
+          window.scrollTo(0, currentPosition);
+          
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          }
+        };
+        
+        requestAnimationFrame(animate);
+      };
+      
+      animateScroll(currentScroll, targetScroll, 150); // 150ms smooth animation
+      
+      // Set scrolling end timer
+      scrollEndTimer = setTimeout(() => {
+        isScrolling = false;
+      }, 150);
+    };
+
+    // Add smooth scroll listener
+    window.addEventListener('wheel', smoothScrollHandler, { passive: false });
+    
+    return () => {
+      window.removeEventListener('wheel', smoothScrollHandler);
+      clearTimeout(scrollEndTimer);
+    };
+  }, []);
+};
+
 export const TextParallaxContentExample = () => {
+  // Enable smooth scrolling
+  useSmoothScroll();
+  
   return (
-    <div className="bg-white">
-      <TextParallaxContent
-        imgUrl="/1.png"
-        subheading="Gemeinschaft"
-        heading="Birlikte güçlüyüz."
-      >
-        <ExampleContent />
-      </TextParallaxContent>
-      <TextParallaxContent
-        imgUrl="/2.png"
-        subheading="Tradition"
-        heading="Köklerimizi yaşatıyoruz."
-      >
-        <ExampleContent />
-      </TextParallaxContent>
-      <TextParallaxContent
-        imgUrl="/3.png"
-        subheading="Zukunft"
-        heading="Yarın için bugün."
-      >
-        <ExampleContent />
-      </TextParallaxContent>
-    </div>
+    <>
+      <style jsx global>{`
+        /* Remove default scroll behavior */
+        html {
+          scroll-behavior: auto;
+        }
+        
+        /* Enhanced scroll performance */
+        body {
+          -webkit-overflow-scrolling: touch;
+          overflow-scrolling: touch;
+        }
+      `}</style>
+      <div className="bg-white">
+        <TextParallaxContent
+          imgUrl="/1.png"
+          subheading="Gemeinschaft"
+          heading="Birlikte güçlüyüz."
+        >
+          <ExampleContent />
+        </TextParallaxContent>
+        <TextParallaxContent
+          imgUrl="/2.png"
+          subheading="Tradition"
+          heading="Köklerimizi yaşatıyoruz."
+        >
+          <ExampleContent />
+        </TextParallaxContent>
+        <TextParallaxContent
+          imgUrl="/3.png"
+          subheading="Zukunft"
+          heading="Yarın için bugün."
+        >
+          <ExampleContent />
+        </TextParallaxContent>
+      </div>
+    </>
   );
 };
 
@@ -63,14 +139,24 @@ interface StickyImageProps {
 }
 
 const StickyImage = ({ imgUrl }: StickyImageProps) => {
-  const targetRef = useRef(null);
+  const targetRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["end end", "end start"],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  // Smooth spring animations for better performance with scroll smoothing
+  const scale = useSpring(useTransform(scrollYProgress, [0, 1], [1, 0.85]), {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
+  
+  const opacity = useSpring(useTransform(scrollYProgress, [0, 1], [1, 0]), {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   return (
     <motion.div
@@ -101,14 +187,24 @@ interface OverlayCopyProps {
 }
 
 const OverlayCopy = ({ subheading, heading }: OverlayCopyProps) => {
-  const targetRef = useRef(null);
+  const targetRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start end", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [250, -250]);
-  const opacity = useTransform(scrollYProgress, [0.25, 0.5, 0.75], [0, 1, 0]);
+  // Smooth spring animations with optimized physics for mouse wheel smoothing
+  const y = useSpring(useTransform(scrollYProgress, [0, 1], [250, -250]), {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
+  
+  const opacity = useSpring(useTransform(scrollYProgress, [0.25, 0.5, 0.75], [0, 1, 0]), {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   return (
     <motion.div
