@@ -1,5 +1,6 @@
 import { EventCard } from '@/components/ui/EventCard'
 import { AuroraBackgroundDemo } from '@/components/ui/aurora-background-demo'
+import { DemoOne } from '@/components/ui/parallax-demo'
 import { Locale, Event } from '@/types'
 import { translations } from '@/lib/i18n/config'
 import Link from 'next/link'
@@ -87,86 +88,38 @@ export default async function HomePage({ params }: HomePageProps) {
       {/* Hero Section with Aurora Background */}
       <AuroraBackgroundDemo locale={locale} />
 
-      {/* Features Section */}
-      <section className="py-16 bg-white">
+      {/* Parallax Content Sections */}
+      <DemoOne />
+
+      {/* Upcoming Events Section - Full Width Design */}
+      <section className="py-24 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              {locale === 'de' ? 'Unsere Werte' : 'Değerlerimiz'}
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              {locale === 'de'
-                ? 'Die Alevitische Gemeinde Dortmund steht für Toleranz, Integration und kulturelle Vielfalt.'
-                : 'Dortmund Alevi Cemaati hoşgörü, entegrasyon ve kültürel çeşitlilik için duruyor.'
-              }
-            </p>
-          </div>
-
-                    <div className="mobile-card-grid mobile-card-grid-4">
-            <div className="mobile-card text-center bg-gray-50 rounded-lg p-4 md:p-6 shadow-sm border border-gray-200">
-              <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-2">
-                {locale === 'de' ? 'Toleranz' : 'Hoşgörü'}
-              </h3>
-              <p className="text-gray-700 text-xs md:text-sm">
-                {locale === 'de'
-                  ? 'Respekt für alle Menschen unabhängig von Herkunft und Glauben.'
-                  : 'Köken ve inanç fark etmeksizin tüm insanlara saygı.'
+          {/* Header with side layout */}
+          <div className="flex flex-col lg:flex-row lg:justify-between lg:items-end mb-12 lg:mb-16">
+            <div className="mb-6 lg:mb-0">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                {t.events.upcoming}
+              </h2>
+              <p className="text-lg text-gray-600 max-w-lg">
+                {locale === 'de' 
+                  ? 'Entdecken Sie unsere kommenden Veranstaltungen und werden Sie Teil unserer lebendigen Gemeinschaft.'
+                  : 'Yaklaşan etkinliklerimizi keşfedin ve canlı topluluğumuzun bir parçası olun.'
                 }
               </p>
             </div>
-
-            <div className="mobile-card text-center bg-gray-50 rounded-lg p-4 md:p-6 shadow-sm border border-gray-200">
-              <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-2">
-                {locale === 'de' ? 'Gemeinschaft' : 'Topluluk'}
-              </h3>
-              <p className="text-gray-700 text-xs md:text-sm">
-                {locale === 'de'
-                  ? 'Starke Verbindungen und Unterstützung für alle Mitglieder.'
-                  : 'Güçlü bağlar ve tüm üyeler için destek.'
-                }
-              </p>
-            </div>
-
-            <div className="mobile-card text-center bg-gray-50 rounded-lg p-4 md:p-6 shadow-sm border border-gray-200">
-              <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-2">
-                {locale === 'de' ? 'Integration' : 'Entegrasyon'}
-              </h3>
-              <p className="text-gray-700 text-xs md:text-sm">
-                {locale === 'de'
-                  ? 'Brücken bauen zwischen Kulturen und Gesellschaften.'
-                  : 'Kültürler ve toplumlar arasında köprüler kurmak.'
-                }
-              </p>
-            </div>
-
-            <div className="mobile-card text-center bg-gray-50 rounded-lg p-4 md:p-6 shadow-sm border border-gray-200">
-              <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-2">
-                {locale === 'de' ? 'Kultur' : 'Kültür'}
-              </h3>
-              <p className="text-gray-700 text-xs md:text-sm">
-                {locale === 'de'
-                  ? 'Erhaltung und Weitergabe unserer reichen Traditionen.'
-                  : 'Zengin geleneklerimizi koruma ve aktarma.'
-                }
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Upcoming Events Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900">
-              {t.events.upcoming}
-            </h2>
-            <Link href={`/${locale}/aktivitaeten`} className="text-gray-600 hover:text-gray-700 font-medium transition-colors">
-              {t.events.allEvents} →
+            <Link 
+              href={`/${locale}/aktivitaeten`} 
+              className="inline-flex items-center px-6 py-3 bg-gray-900 text-white font-semibold rounded-full hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg group"
+            >
+              {t.events.allEvents}
+              <svg className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
             </Link>
           </div>
 
-          <div className="mobile-card-grid">
+          {/* Events Grid - Clean Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {currentEvents.map((event) => (
               <EventCard key={event.id} event={event} locale={locale} />
             ))}
