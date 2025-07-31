@@ -1,4 +1,5 @@
 import { Locale } from '@/types'
+import { SimpleCssScroll } from '@/components/ui/simple-css-scroll'
 
 interface EngagementPageProps {
   params: Promise<{ locale: Locale }>
@@ -109,18 +110,21 @@ export default async function EngagementPage({ params }: EngagementPageProps) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="bg-gray-800 text-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            {locale === 'de' ? 'Unser Engagement' : 'Katılımımız'}
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-200">
-            {locale === 'de' 
-              ? 'Ehrenamtliche Arbeit für eine integrative Gesellschaft'
-              : 'Kapsayıcı bir toplum için gönüllü çalışma'
-            }
-          </p>
+      {/* Hero Section mit Infinite Scroll */}
+      <section className="py-20 bg-white dark:bg-neutral-950 relative overflow-hidden">
+        <div className="relative z-10 flex items-center justify-center min-h-[500px]">
+          <div className="w-full max-w-5xl mx-auto p-4">
+            <div className="rounded-xl w-full h-[500px] border border-neutral-200 dark:border-neutral-800 bg-neutral-100/50 dark:bg-neutral-900/50 backdrop-blur-sm flex items-center justify-center">
+              <SimpleCssScroll
+                text={locale === 'de' 
+                  ? "Solidarität • Hilfe • Dienst • Gemeinde"
+                  : "Dayanışma • Yardım • Hizmet • Cemaat"
+                }
+                speed={120}
+                className="font-bold text-center text-3xl md:text-5xl lg:text-7xl tracking-wide text-black dark:text-white drop-shadow-sm"
+              />
+            </div>
+          </div>
         </div>
       </section>
 

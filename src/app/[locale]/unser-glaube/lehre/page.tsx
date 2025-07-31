@@ -11,7 +11,7 @@ export default async function TeachingPage({ params }: TeachingPageProps) {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gray-800 text-white py-16">
+      <section className="text-black py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link href={`/${locale}/unser-glaube`} className="text-gray-300 hover:text-white mb-4 inline-block">
             ← {locale === 'de' ? 'Zurück zu Unser Glaube' : 'İnancımıza Dön'}

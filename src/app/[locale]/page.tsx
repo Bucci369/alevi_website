@@ -1,8 +1,6 @@
 import { EventCard } from '@/components/ui/EventCard'
 import { AuroraBackgroundDemo } from '@/components/ui/aurora-background-demo'
 import { DemoOne } from '@/components/ui/parallax-demo'
-import { ReligiousTimeline } from '@/components/ui/religious-timeline'
-import { religiousTimelineData } from '@/components/ui/religious-timeline-data'
 import { Locale, Event } from '@/types'
 import { translations } from '@/lib/i18n/config'
 import Link from 'next/link'
@@ -92,9 +90,6 @@ export default async function HomePage({ params }: HomePageProps) {
 
       {/* Parallax Content Sections */}
       <DemoOne />
-
-      {/* Religious Timeline Section */}
-      <ReligiousTimeline data={religiousTimelineData} locale={locale} />
 
       {/* Upcoming Events Section - Full Width Design */}
       <section className="py-24 bg-gradient-to-br from-gray-50 to-gray-100">

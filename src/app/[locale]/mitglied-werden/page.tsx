@@ -88,7 +88,7 @@ export default async function MembershipPage({ params }: MembershipPageProps) {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gray-800 text-white py-16">
+      <section className="text-black py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             {locale === 'de' ? 'Mitglied werden' : 'Üye Ol'}

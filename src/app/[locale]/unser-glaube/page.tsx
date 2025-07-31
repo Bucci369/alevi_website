@@ -1,5 +1,7 @@
 import { Locale } from '@/types'
 import Link from 'next/link'
+import { ReligiousTimeline } from '@/components/ui/religious-timeline'
+import { religiousTimelineData } from '@/components/ui/religious-timeline-data'
 
 interface FaithPageProps {
   params: Promise<{ locale: Locale }>
@@ -144,20 +146,9 @@ export default async function FaithPage({ params }: FaithPageProps) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="bg-gray-800 text-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            {locale === 'de' ? 'Unser Glaube' : 'İnancımız'}
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-200">
-            {locale === 'de' 
-              ? 'Eine umfassende Weltanschauung der Liebe und Toleranz'
-              : 'Sevgi ve hoşgörünün kapsamlı bir dünya görüşü'
-            }
-          </p>
-        </div>
-      </section>
+
+      {/* Religious Timeline Section */}
+      <ReligiousTimeline data={religiousTimelineData} locale={locale} />
 
       {/* Statistics Section */}
       <section className="py-16">

@@ -39,23 +39,21 @@ export default async function AboutPage({ params }: AboutPageProps) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="bg-gray-800 text-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            {locale === 'de' ? 'Über uns' : 'Hakkımızda'}
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-200">
-            {locale === 'de' 
-              ? 'Alevitische Gemeinde Dortmund e.V.'
-              : 'Dortmund Alevi Cemevi'
-            }
-          </p>
-        </div>
+      {/* Hero Section - direkt auf weißem Board */}
+      <section className="py-16 text-center">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-black">
+          {locale === 'de' ? 'Über uns' : 'Hakkımızda'}
+        </h1>
+        <p className="text-xl md:text-2xl text-gray-700 mb-16">
+          {locale === 'de' 
+            ? 'Alevitische Gemeinde Dortmund e.V.'
+            : 'Dortmund Alevi Cemevi'
+          }
+        </p>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-white">
+      {/* Stats Section - gleicher Stil wie vorher */}
+      <section className="py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -73,7 +71,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
       </section>
 
       {/* About Text Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
@@ -119,7 +117,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             {locale === 'de' ? 'Unsere Mission' : 'Misyonumuz'}
           </h2>
-          <div className="bg-gray-50 rounded-lg p-8 border border-gray-200">
+          <div className="rounded-lg p-8 border border-gray-200">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">
@@ -149,7 +147,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
       </section>
 
       {/* Board Members Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
             {locale === 'de' ? 'Vorstand' : 'Yönetim Kurulu'}
