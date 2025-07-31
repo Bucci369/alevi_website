@@ -57,7 +57,7 @@ interface TextParallaxContentProps {
 const TextParallaxContent = ({ imgUrl, subheading, heading, children }: TextParallaxContentProps) => {
   return (
     <div className="px-0 md:px-12">
-      <div className="relative h-[150vh]">
+      <div className="relative h-[100vh] md:h-[150vh]">
         <StickyImage imgUrl={imgUrl} />
         <OverlayCopy heading={heading} subheading={subheading} />
       </div>
@@ -107,13 +107,11 @@ const OverlayCopy = ({ subheading, heading }: OverlayCopyProps) => {
     offset: ["start end", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [250, -250]);
   const opacity = useTransform(scrollYProgress, [0.25, 0.5, 0.75], [0, 1, 0]);
 
   return (
     <motion.div
       style={{
-        y,
         opacity,
         textShadow: '3px 3px 12px rgba(0, 0, 0, 0.9), 1px 1px 6px rgba(0, 0, 0, 0.7)',
       }}
