@@ -137,7 +137,7 @@ const StickyImage = ({ imgUrl, isMobile }: StickyImageProps) => {
 
   // Use spring for smoother animation
   const scale = useSpring(
-    useTransform(scrollYProgress, [0, 1], [1, isMobile ? 0.95 : 0.85]),
+    useTransform(scrollYProgress, [0, 1], [1, 0.85]),
     { stiffness: 100, damping: 30, restDelta: 0.001 }
   );
   
@@ -150,8 +150,9 @@ const StickyImage = ({ imgUrl, isMobile }: StickyImageProps) => {
     <motion.div
       style={{
         backgroundImage: `url(${imgUrl})`,
-        backgroundSize: "cover",
+        backgroundSize: isMobile ? "contain" : "cover",
         backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
         height: `calc(100vh - ${IMG_PADDING * 2}px)`,
         top: IMG_PADDING,
         scale,
@@ -165,7 +166,7 @@ const StickyImage = ({ imgUrl, isMobile }: StickyImageProps) => {
       <motion.div
         className="absolute inset-0 bg-neutral-950/70"
         style={{
-          opacity: isMobile ? 0.6 : opacity, // Fixed opacity on mobile
+          opacity,
         }}
       />
     </motion.div>
@@ -187,7 +188,7 @@ const OverlayCopy = ({ subheading, heading, isMobile }: OverlayCopyProps) => {
 
   // Reduce parallax movement on mobile for better performance
   const y = useSpring(
-    useTransform(scrollYProgress, [0, 1], [isMobile ? 50 : 250, isMobile ? -50 : -250]),
+    useTransform(scrollYProgress, [0, 1], [250, -250]),
     { stiffness: 100, damping: 30, restDelta: 0.001 }
   );
   
@@ -199,7 +200,7 @@ const OverlayCopy = ({ subheading, heading, isMobile }: OverlayCopyProps) => {
   return (
     <motion.div
       style={{
-        y: isMobile ? 0 : y, // Disable vertical parallax on mobile
+        y,
         opacity,
       }}
       ref={targetRef}
