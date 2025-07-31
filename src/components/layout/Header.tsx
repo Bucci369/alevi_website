@@ -201,25 +201,25 @@ export function Header({ locale }: HeaderProps) {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="2xl:hidden border-t bg-white/85 backdrop-blur-lg">
-            <div className="px-4 pt-2 pb-3 space-y-1">
+            <div className="px-4 pt-2 pb-3 divide-y divide-black">
               {navigation.map((item) => (
-                <div key={item.name} className="text-center">
+                <div key={item.name} className="py-2">
                   <Link
                     href={item.href}
-                    className="block mx-auto w-fit px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors"
+                    className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors text-left"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}
                   </Link>
                   {item.submenu && (
-                    <div className="space-y-1 mt-1">
+                    <div className="pl-4 space-y-1 mt-1">
                       {item.submenu.map((subItem) => (
                         <Link
                           key={subItem.name}
                           href={subItem.href}
                           target={subItem.external ? '_blank' : undefined}
                           rel={subItem.external ? 'noopener noreferrer' : undefined}
-                          className="block mx-auto w-fit px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors"
+                          className="block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors text-left"
                           onClick={() => setIsMenuOpen(false)}
                         >
                           {subItem.name}
@@ -236,10 +236,10 @@ export function Header({ locale }: HeaderProps) {
               ))}
               
               {/* Mobile Language Switcher */}
-              <div className="border-t pt-2 mt-2 text-center">
+              <div className="pt-2">
                 <Link
                   href={getLocalizedPath(locale === 'de' ? 'tr' : 'de')}
-                  className="inline-flex items-center px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors"
+                  className="flex items-center px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <Globe className="w-4 h-4 mr-2" />
