@@ -80,7 +80,6 @@ export function Header({ locale }: HeaderProps) {
     },
     { name: t.nav.activities, href: `/${locale}/aktivitaeten` },
     { name: t.nav.articles, href: `/${locale}/artikel` },
-    { name: t.nav.children, href: `/${locale}/kinder` },
     { name: t.nav.membership, href: `/${locale}/mitglied-werden` },
     { name: t.nav.contact, href: `/${locale}/kontakt` }
   ]
@@ -105,14 +104,15 @@ export function Header({ locale }: HeaderProps) {
               className="rounded-lg"
             />
             <div className="hidden sm:block">
-              <h1 className="text-xl font-bold text-gray-900">
-                Alevitische Gemeinde Dortmund
+              <h1 className="text-base md:text-xl font-bold text-gray-900 leading-tight">
+                <span className="block sm:inline">Alevitische Gemeinde</span>
+                <span className="block sm:inline sm:ml-1">Dortmund</span>
               </h1>
             </div>
           </Link>
 
           {/* Desktop Navigation - rechts ausgerichtet */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden 2xl:flex items-center space-x-8">
             {navigation.map((item) => (
               <div key={item.name} className="relative">
                 {item.submenu ? (
@@ -188,7 +188,7 @@ export function Header({ locale }: HeaderProps) {
           {/* Mobile menu button - rechts ausgerichtet */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition-colors"
+            className="2xl:hidden p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition-colors"
           >
             {isMenuOpen ? (
               <X className="w-6 h-6" />
@@ -200,26 +200,26 @@ export function Header({ locale }: HeaderProps) {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden border-t bg-white/85 backdrop-blur-lg">
-            <div className="px-2 pt-2 pb-3 space-y-1">
+          <div className="2xl:hidden border-t bg-white/85 backdrop-blur-lg">
+            <div className="px-4 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
-                <div key={item.name}>
+                <div key={item.name} className="text-center">
                   <Link
                     href={item.href}
-                    className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors"
+                    className="block mx-auto w-fit px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}
                   </Link>
                   {item.submenu && (
-                    <div className="ml-4 space-y-1">
+                    <div className="space-y-1 mt-1">
                       {item.submenu.map((subItem) => (
                         <Link
                           key={subItem.name}
                           href={subItem.href}
                           target={subItem.external ? '_blank' : undefined}
                           rel={subItem.external ? 'noopener noreferrer' : undefined}
-                          className="block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors"
+                          className="block mx-auto w-fit px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors"
                           onClick={() => setIsMenuOpen(false)}
                         >
                           {subItem.name}
@@ -236,10 +236,10 @@ export function Header({ locale }: HeaderProps) {
               ))}
               
               {/* Mobile Language Switcher */}
-              <div className="border-t pt-2 mt-2">
+              <div className="border-t pt-2 mt-2 text-center">
                 <Link
                   href={getLocalizedPath(locale === 'de' ? 'tr' : 'de')}
-                  className="flex items-center px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors"
+                  className="inline-flex items-center px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <Globe className="w-4 h-4 mr-2" />

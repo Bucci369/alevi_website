@@ -16,8 +16,7 @@ export const translations = {
       religiousEducation: 'Religionsunterricht',
       courses: 'Kursprogramm',
       funerals: 'Bestattungen',
-      articles: 'Artikel',
-      children: 'Für Kinder'
+      articles: 'Artikel'
     },
     common: {
       readMore: 'Weiterlesen',
@@ -58,8 +57,7 @@ export const translations = {
       religiousEducation: 'Din Dersi',
       courses: 'Kurs Programı',
       funerals: 'Cenaze Hizmetleri',
-      articles: 'Makaleler',
-      children: 'Çocuklar İçin'
+      articles: 'Makaleler'
     },
     common: {
       readMore: 'Devamını Oku',
