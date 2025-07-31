@@ -11,6 +11,38 @@ interface ArticlePageProps {
 // Mock article data - später aus CMS oder Database
 const articles = [
   {
+    id: 'die-zwoelf-imame',
+    title: {
+      de: 'Die Zwölf Imame: Säulen des Alevitischen Glaubens und Wegweiser der Menschlichkeit',
+      tr: 'On İki İmam: Alevi İnancının Direği ve İnsanlığın Rehberi'
+    },
+    excerpt: {
+      de: 'Für die alevitische Glaubensgemeinschaft sind die Zwölf Imame weit mehr als historische Figuren; sie sind die spirituellen Säulen, die das Fundament des alevitischen Glaubens bilden.',
+      tr: 'Alevi inanç topluluğu için On İki İmam, tarihî şahsiyetlerinden çok daha fazlasıdır; Alevi inancının temelini oluşturan ruhani direklerdir.'
+    },
+    author: 'Özgür Azap',
+    publishedDate: new Date('2025-01-25'),
+    readTime: 22,
+    tags: ['Zwölf Imame', 'Alevitentum', 'Ehl-i Beyt', 'Kerbela', 'Spiritualität'],
+    image: '/12imam-Kopie-1.png'
+  },
+  {
+    id: 'haci-bektas-veli',
+    title: {
+      de: 'Hacı Bektaş Veli: Der Gründer des Bektaşitentums',
+      tr: 'Hacı Bektaş Veli: Bektaşiliğin Kurucusu'
+    },
+    excerpt: {
+      de: 'Hacı Bektaş Veli (1209-1271) war ein mystischer Sufi-Meister des 13. Jahrhunderts, dessen Lehren die Grundlage für das Bektaşi-Sufitum und das moderne Alevitentum legten.',
+      tr: 'Hacı Bektas Veli (1209-1271), 13. yüzyılın mistik sufi ustası olup, öğretileri Bektaşi sufizminin ve modern Aleviliğin temellerini oluşturmuştur.'
+    },
+    author: 'Özgür Azap',
+    publishedDate: new Date('2025-01-20'),
+    readTime: 18,
+    tags: ['Hacı Bektaş Veli', 'Bektaşilik', 'Sufismus', '13. Jahrhundert'],
+    image: '/hacibektasveli01.png'
+  },
+  {
     id: 'hz-ali-im-alevitentum',
     title: {
       de: 'Hz. Ali im Alevitentum: Eine umfassende Darstellung',
@@ -25,22 +57,6 @@ const articles = [
     readTime: 12,
     tags: ['Alevitentum', 'Hz. Ali', 'Theologie', 'Geschichte'],
     image: '/hzali.jpg'
-  },
-  {
-    id: 'haci-bektas-veli',
-    title: {
-      de: 'Hacı Bektaş Veli: Der Gründer des Bektaşitentums',
-      tr: 'Hacı Bektaş Veli: Bektaşiliğin Kurucusu'
-    },
-    excerpt: {
-      de: 'Hacı Bektaş Veli (1209-1271) war ein mystischer Sufi-Meister des 13. Jahrhunderts, dessen Lehren die Grundlage für das Bektaşi-Sufitum und das moderne Alevitentum legten.',
-      tr: 'Hacı Bektas Veli (1209-1271), 13. yüzyılın mistik sufi ustası olup, öğretileri Bektaşi sufizminin ve modern Aleviliğin temellerini oluşturmuştur.'
-    },
-    author: 'Özgür Azap',
-    publishedDate: new Date('2025-01-20'),
-    readTime: 10,
-    tags: ['Hacı Bektaş Veli', 'Bektaşilik', 'Sufismus', '13. Jahrhundert'],
-    image: '/hacibektasveli01.png'
   }
 ]
 
