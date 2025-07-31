@@ -48,6 +48,64 @@ body {
   padding-top: 64px; /* Header height (h-16 = 4rem = 64px) */
 }
 
+/* Alevi Calendar Responsive Styles */
+.alevi-calendar-timeline {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+.alevi-calendar-timeline::-webkit-scrollbar {
+  height: 6px;
+}
+
+.alevi-calendar-timeline::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
+.alevi-calendar-timeline::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.alevi-calendar-timeline::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Text Shadow for better readability on mystical background */
+.text-shadow-lg {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .alevi-calendar-months {
+    display: none;
+  }
+  
+  .alevi-calendar-events {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .alevi-calendar-event-card {
+    min-width: 280px;
+    max-width: 320px;
+  }
+  
+  .alevi-calendar-timeline-line {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .alevi-calendar-event-card {
+    min-width: 260px;
+    max-width: 300px;
+  }
+}
+
 /* Smooth scrolling für bessere UX */
 html {
   scroll-behavior: smooth;

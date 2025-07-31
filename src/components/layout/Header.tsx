@@ -82,6 +82,7 @@ export function Header({ locale }: HeaderProps) {
       ]
     },
     { name: t.nav.activities, href: `/${locale}/aktivitaeten` },
+    { name: t.nav.calendar, href: `/${locale}/kalender` },
     { name: t.nav.articles, href: `/${locale}/artikel` },
     { name: t.nav.membership, href: `/${locale}/mitglied-werden` },
     { name: t.nav.contact, href: `/${locale}/kontakt` }
