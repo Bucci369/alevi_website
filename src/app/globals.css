@@ -278,9 +278,33 @@ html {
 
 /* Mobile image scaling for article cards */
 @media (max-width: 767px) {
-  .mobile-card .relative img {
-    object-fit: contain !important;
+  .mobile-card .relative img,
+  .mobile-card .h-48 img {
+    object-fit: cover !important;
     object-position: center !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  
+  /* Ensure full width container for event card images */
+  .mobile-card .h-48 {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  /* Remove any horizontal padding/margin that might create gaps */
+  .mobile-card .overflow-hidden {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  /* Force event card container to full width on mobile */
+  .mobile-card {
+    width: 100% !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 }
 
