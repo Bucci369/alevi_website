@@ -1,147 +1,115 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
-import { FiArrowUpRight } from "react-icons/fi";
+import Image from "next/image";
+import React from "react";
+// import { Timeline } from "@/components/ui/timeline";
+import { Timeline } from "./timeline";
 
 export const TextParallaxContentExample = () => {
+  const data = [
+    {
+      title: "Gemeinschaft",
+      content: (
+        <div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+            Birlikte güçlüyüz - Zusammen sind wir stark. Unsere Gemeinschaft steht für Solidarität, gegenseitige Unterstützung und das Miteinander verschiedener Generationen.
+          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <Image
+              src="/1.png"
+              alt="Gemeinschaft"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+            <Image
+              src="/2.png"
+              alt="Tradition"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "Tradition",
+      content: (
+        <div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+            Köklerimizi yaşatıyoruz - Wir leben unsere Wurzeln. Die alevitische Tradition wird durch Cem-Zeremonien, kulturelle Veranstaltungen und Bildungsarbeit weitergegeben.
+          </p>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+            Unsere reiche Kultur umfasst Musik, Tanz, Literatur und spirituelle Praktiken, die seit Jahrhunderten unsere Identität prägen.
+          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <Image
+              src="/3.png"
+              alt="Zukunft"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+            <Image
+              src="/1.png"
+              alt="Gemeinschaft"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "Zukunft",
+      content: (
+        <div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
+            Yarın için bugün - Heute für morgen. Unsere Vision für die Zukunft der alevitischen Gemeinde in Dortmund.
+          </p>
+          <div className="mb-8">
+            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+              ✅ Jugendarbeit und Bildungsprogramme
+            </div>
+            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+              ✅ Interreligiöser Dialog
+            </div>
+            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+              ✅ Kulturelle Veranstaltungen
+            </div>
+            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+              ✅ Soziale Projekte
+            </div>
+            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+              ✅ Gemeinschaftszentrum erweitern
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <Image
+              src="/2.png"
+              alt="Tradition"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+            <Image
+              src="/3.png"
+              alt="Zukunft"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+          </div>
+        </div>
+      ),
+    },
+  ];
+
   return (
-    <>
-      <style jsx global>{`
-        /* Enhanced scroll performance */
-        html {
-          scroll-behavior: smooth;
-        }
-        
-        body {
-          -webkit-overflow-scrolling: touch;
-          overflow-scrolling: touch;
-        }
-      `}</style>
-      <div className="bg-white">
-        <TextParallaxContent
-          imgUrl="/1.png"
-          subheading="Gemeinschaft"
-          heading="Birlikte güçlüyüz."
-        >
-          <ExampleContent />
-        </TextParallaxContent>
-        <TextParallaxContent
-          imgUrl="/2.png"
-          subheading="Tradition"
-          heading="Köklerimizi yaşatıyoruz."
-        >
-          <ExampleContent />
-        </TextParallaxContent>
-        <TextParallaxContent
-          imgUrl="/3.png"
-          subheading="Zukunft"
-          heading="Yarın için bugün."
-        >
-          <ExampleContent />
-        </TextParallaxContent>
-      </div>
-    </>
-  );
-};
-
-const IMG_PADDING = 48;
-
-interface TextParallaxContentProps {
-  imgUrl: string;
-  subheading: string;
-  heading: string;
-  children: React.ReactNode;
-}
-
-const TextParallaxContent = ({ imgUrl, subheading, heading, children }: TextParallaxContentProps) => {
-  return (
-    <div className="px-0 md:px-12">
-      <div className="relative h-[100vh] md:h-[150vh]">
-        <StickyImage imgUrl={imgUrl} />
-        <OverlayCopy heading={heading} subheading={subheading} />
-      </div>
-      {children}
+    <div className="min-h-screen w-full">
+      <Timeline data={data} />
     </div>
   );
 };
-
-interface StickyImageProps {
-  imgUrl: string;
-}
-
-const StickyImage = ({ imgUrl }: StickyImageProps) => {
-  const targetRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["end end", "end start"],
-  });
-
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
-
-  return (
-    <motion.div
-      style={{
-        backgroundImage: `url(${imgUrl})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        scale,
-      }}
-      ref={targetRef}
-      className="sticky z-0 overflow-hidden h-screen top-0 rounded-none md:rounded-[2rem] md:h-[calc(100vh-96px)] md:top-12"
-    >
-      <div className="absolute inset-0 bg-neutral-950/70" />
-    </motion.div>
-  );
-};
-
-interface OverlayCopyProps {
-  subheading: string;
-  heading: string;
-}
-
-const OverlayCopy = ({ subheading, heading }: OverlayCopyProps) => {
-  const targetRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start end", "end start"],
-  });
-
-  const opacity = useTransform(scrollYProgress, [0.25, 0.5, 0.75], [0, 1, 0]);
-
-  return (
-    <motion.div
-      style={{
-        opacity,
-        textShadow: '3px 3px 12px rgba(0, 0, 0, 0.9), 1px 1px 6px rgba(0, 0, 0, 0.7)',
-      }}
-      ref={targetRef}
-      className="absolute left-0 top-0 flex h-screen w-full flex-col items-center justify-center text-white"
-    >
-      <p className="mb-2 text-center text-xl md:mb-4 md:text-3xl font-bold">
-        {subheading}
-      </p>
-      <p className="text-center text-4xl font-black md:text-7xl drop-shadow-2xl">{heading}</p>
-    </motion.div>
-  );
-};
-
-const ExampleContent = () => (
-  <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12">
-    <h2 className="col-span-1 text-3xl font-bold md:col-span-4">
-      Unsere lebendige Gemeinschaft in Dortmund
-    </h2>
-    <div className="col-span-1 md:col-span-8">
-      <p className="mb-4 text-xl text-neutral-600 md:text-2xl">
-        Die Alevitische Gemeinde Dortmund ist ein Ort der Begegnung, des Lernens und des gemeinsamen Wachsens. 
-        Hier kommen Menschen unterschiedlicher Generationen zusammen, um ihre Kultur zu leben und weiterzugeben.
-      </p>
-      <p className="mb-8 text-xl text-neutral-600 md:text-2xl">
-        Von Cem-Zeremonien bis hin zu kulturellen Veranstaltungen - wir schaffen Räume für authentische Gemeinschaftserlebnisse.
-      </p>
-      <button className="w-full rounded bg-neutral-900 px-9 py-4 text-xl text-white transition-colors hover:bg-neutral-700 md:w-fit">
-        Mehr erfahren <FiArrowUpRight className="inline" />
-      </button>
-    </div>
-  </div>
-);
