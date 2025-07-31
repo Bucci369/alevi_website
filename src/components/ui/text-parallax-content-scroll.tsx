@@ -56,12 +56,7 @@ interface TextParallaxContentProps {
 
 const TextParallaxContent = ({ imgUrl, subheading, heading, children }: TextParallaxContentProps) => {
   return (
-    <div
-      style={{
-        paddingLeft: IMG_PADDING,
-        paddingRight: IMG_PADDING,
-      }}
-    >
+    <div className="px-0 md:px-12">
       <div className="relative h-[150vh]">
         <StickyImage imgUrl={imgUrl} />
         <OverlayCopy heading={heading} subheading={subheading} />
@@ -90,12 +85,10 @@ const StickyImage = ({ imgUrl }: StickyImageProps) => {
         backgroundImage: `url(${imgUrl})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        height: `calc(100vh - ${IMG_PADDING * 2}px)`,
-        top: IMG_PADDING,
         scale,
       }}
       ref={targetRef}
-      className="sticky z-0 overflow-hidden rounded-[2rem]"
+      className="sticky z-0 overflow-hidden h-screen top-0 rounded-none md:rounded-[2rem] md:h-[calc(100vh-96px)] md:top-12"
     >
       <div className="absolute inset-0 bg-neutral-950/70" />
     </motion.div>
