@@ -40,7 +40,7 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
   const currentMonth = new Date().getMonth();
   
   // Generate calendar days with Alevi events
-  const generateCalendarDays = () => {
+  const generateCalendarDays = (isMobile: boolean = false) => {
     const days = [];
     const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
     const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
@@ -61,6 +61,19 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
       31: 'Toplum Yemeği\nGemeindezentrum Dortmund' // Community dinner
     };
     
+    // For mobile: Show only 3 weeks (21 days) for better performance
+    if (isMobile) {
+      // Show only days 1-21 without empty cells
+      for (let day = 1; day <= 21; day++) {
+        days.push({
+          day,
+          event: aleviEvents[day] || null
+        });
+      }
+      return days;
+    }
+    
+    // Desktop: Full calendar
     // Empty cells for start of month
     for (let i = 0; i < firstDayOfMonth; i++) {
       days.push(null);
@@ -78,6 +91,7 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
   };
 
   const calendarDays = generateCalendarDays();
+  const mobileCalendarDays = generateCalendarDays(true);
   const monthNames = {
     de: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 
          'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
@@ -96,8 +110,8 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
           <div className="w-full h-full max-w-[150vw] max-h-[95vh] flex items-center justify-center">
             <div className="bg-white/30 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl border border-white/20 w-full h-full flex flex-col">
               
-              {/* Calendar Grid - Responsive */}
-              <div className="grid grid-cols-7 gap-1 sm:gap-2 lg:gap-3 xl:gap-4 text-center flex-1 min-h-0">
+              {/* Desktop Calendar Grid - Full calendar */}
+              <div className="hidden md:grid grid-cols-7 gap-1 sm:gap-2 lg:gap-3 xl:gap-4 text-center flex-1 min-h-0">
                 {/* Day Headers */}
                 {(locale === 'de' ? ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'] : 
                                    ['Paz', 'Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt']).map((day) => (
@@ -109,7 +123,7 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
                   </div>
                 ))}
                 
-                {/* Calendar Days */}
+                {/* Desktop Calendar Days */}
                 {calendarDays.map((dayData, index) => (
                   <div 
                     key={index} 
@@ -123,6 +137,39 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
                     {dayData?.event && (
                       <span className="text-[6px] sm:text-[8px] md:text-[10px] lg:text-xs xl:text-sm font-normal text-red-600 leading-tight mt-0.5 text-center px-0.5 whitespace-pre-line">
                         {dayData.event}
+                      </span>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              {/* Mobile Calendar Grid - Simplified 3x7 grid (21 days) */}
+              <div className="md:hidden grid grid-cols-7 gap-1 text-center flex-1 min-h-0">
+                {/* Mobile Day Headers - Shorter */}
+                {(locale === 'de' ? ['S', 'M', 'D', 'M', 'D', 'F', 'S'] : 
+                                   ['P', 'P', 'S', 'Ç', 'P', 'C', 'C']).map((day) => (
+                  <div 
+                    key={day} 
+                    className="aspect-square flex items-center justify-center font-semibold text-gray-600 text-xs border border-gray-400/40 bg-gray-100/20 rounded-sm"
+                  >
+                    {day}
+                  </div>
+                ))}
+                
+                {/* Mobile Calendar Days - Only 21 days */}
+                {mobileCalendarDays.map((dayData, index) => (
+                  <div 
+                    key={index} 
+                    className={`aspect-square flex flex-col items-center justify-center text-xs font-medium border rounded-sm transition-colors ${
+                      dayData?.event 
+                        ? 'text-red-700 border-red-400/60 bg-red-50/20' 
+                        : 'text-gray-700 border-gray-400/50 bg-white/10'
+                    }`}
+                  >
+                    <span className="font-bold text-xs">{dayData?.day}</span>
+                    {dayData?.event && (
+                      <span className="text-[6px] font-normal text-red-600 leading-tight mt-0.5 text-center px-0.5">
+                        •
                       </span>
                     )}
                   </div>
