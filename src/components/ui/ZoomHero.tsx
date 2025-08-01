@@ -181,7 +181,7 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
 
         {/* Main Content - Over the calendar */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-black drop-shadow-lg">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-black drop-shadow-lg">
             {locale === 'de' ? (
               <>
                 Alevitischer Kalender<br />
@@ -194,10 +194,27 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
               </>
             )}
           </h1>
-          <div className="animate-bounce mt-12">
-            <svg className="w-6 h-6 mx-auto text-gray-600 drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
+        </div>
+        
+        {/* Scroll Indicator - Modern Mouse with scroll animation */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+          <div className="flex flex-col items-center space-y-3 opacity-70 hover:opacity-100 transition-opacity duration-300">
+            {/* Modern Mouse Icon */}
+            <div className="relative">
+              <div className="w-7 h-12 border-2 border-gray-600 rounded-full bg-white/10 backdrop-blur-sm shadow-lg flex justify-center">
+                {/* Animated scroll wheel */}
+                <div className="w-1 h-4 bg-gray-600 rounded-full mt-2 animate-bounce" 
+                     style={{ animationDuration: '2s' }}></div>
+              </div>
+              {/* Subtle glow effect */}
+              <div className="absolute inset-0 w-7 h-12 border border-white/20 rounded-full"></div>
+            </div>
+            {/* Elegant text hint */}
+            <div className="text-center">
+              <p className="text-xs text-gray-600 font-medium tracking-wide">
+                {locale === 'de' ? 'Scrollen für mehr' : 'Daha fazlası için kaydır'}
+              </p>
+            </div>
           </div>
         </div>
       </section>
