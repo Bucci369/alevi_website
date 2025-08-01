@@ -15,11 +15,15 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
       const heroContainer = document.getElementById('hero-container');
       
       if (hero && heroContainer) {
-        // Smooth fade-out effect without zoom
-        const maxScroll = window.innerHeight;
-        const opacity = Math.max(0.1, 1 - (scrolled / maxScroll) * 0.9);
+        // Only apply scroll effects on desktop, not mobile
+        const isMobile = window.innerWidth < 768;
         
-        hero.style.opacity = opacity.toString();
+        if (!isMobile) {
+          // Smooth fade-out effect without zoom (desktop only)
+          const maxScroll = window.innerHeight;
+          const opacity = Math.max(0.1, 1 - (scrolled / maxScroll) * 0.9);
+          hero.style.opacity = opacity.toString();
+        }
         
         // Hide hero when scrolled past timeline to prevent footer overlap
         if (scrolled > window.innerHeight * 1.5) {
@@ -104,12 +108,12 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
         className="h-screen flex items-center justify-center text-center bg-gradient-to-br from-blue-50 via-white to-blue-100 transition-transform duration-100 ease-out relative overflow-hidden"
       >
         {/* Responsive Giant Background Calendar with INTERACTIVE HOVER */}
-        <div className="absolute inset-0 flex items-center justify-center p-4 z-10">
-          <div className="w-full h-full max-w-[150vw] max-h-[95vh] flex items-center justify-center opacity-30 hover:opacity-50 transition-opacity duration-500">
-            <div className="bg-white/30 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl border border-white/20 w-full h-full flex flex-col">
+        <div className="absolute inset-0 flex items-center justify-center p-4 z-30">
+          <div className="w-full h-full max-w-[150vw] max-h-[95vh] flex items-center justify-center opacity-30 hover:opacity-60 transition-all duration-500 group">
+            <div className="bg-white/30 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl border border-white/20 w-full h-full flex flex-col relative hover:bg-white/40 transition-all duration-500">
               
               {/* Desktop Calendar Grid - Full calendar with hover effects */}
-              <div className="hidden md:grid grid-cols-7 gap-1 sm:gap-2 lg:gap-3 xl:gap-4 text-center flex-1 min-h-0">
+              <div className="hidden md:grid grid-cols-7 gap-1 sm:gap-2 lg:gap-3 xl:gap-4 text-center flex-1 min-h-0 relative z-40">
                 {/* Day Headers */}
                 {(locale === 'de' ? ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'] : 
                                    ['Paz', 'Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt']).map((day) => (
@@ -125,15 +129,16 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
                 {calendarDays.map((dayData, index) => (
                   <div 
                     key={index} 
-                    className={`aspect-square flex flex-col items-center justify-center text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-medium border rounded-sm lg:rounded-md transition-all duration-500 cursor-pointer group relative transform ${
+                    className={`aspect-square flex flex-col items-center justify-center text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-medium border rounded-sm lg:rounded-md transition-all duration-300 cursor-pointer relative ${
                       dayData?.event 
-                        ? 'text-red-700 border-red-400/60 bg-red-50/20 hover:bg-red-300 hover:border-red-700 hover:scale-125 hover:shadow-2xl hover:opacity-100 hover:z-50' 
-                        : 'text-gray-700 border-gray-400/50 bg-white/10 hover:bg-blue-200 hover:border-blue-600 hover:scale-115 hover:shadow-xl hover:opacity-100 hover:z-50'
+                        ? 'text-red-700 border-red-400/60 bg-red-50/30 hover:bg-red-400/80 hover:border-red-800 hover:scale-125 hover:shadow-2xl hover:rotate-3 hover:text-white' 
+                        : 'text-gray-700 border-gray-400/50 bg-white/20 hover:bg-blue-400/80 hover:border-blue-700 hover:scale-115 hover:shadow-xl hover:rotate-1 hover:text-white'
                     }`}
+                    style={{ zIndex: 50 }}
                   >
-                    <span className="font-bold group-hover:font-black transition-all duration-500 relative z-10">{dayData?.day}</span>
+                    <span className="font-bold transition-all duration-300">{dayData?.day}</span>
                     {dayData?.event && (
-                      <span className="text-[6px] sm:text-[8px] md:text-[10px] lg:text-xs xl:text-sm font-normal text-red-600 leading-tight mt-0.5 text-center px-0.5 whitespace-pre-line group-hover:font-bold group-hover:text-red-800 transition-all duration-500 relative z-10">
+                      <span className="text-[6px] sm:text-[8px] md:text-[10px] lg:text-xs xl:text-sm font-normal text-red-600 leading-tight mt-0.5 text-center px-0.5 whitespace-pre-line transition-all duration-300">
                         {dayData.event}
                       </span>
                     )}
@@ -177,8 +182,8 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
           </div>
         </div>
 
-        {/* Main Content - Over the calendar but with pointer-events-none */}
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 pointer-events-none">
+        {/* Main Content - Over the calendar but lower z-index */}
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pointer-events-none">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-black drop-shadow-lg">
             {locale === 'de' ? (
               <>
@@ -195,7 +200,7 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
         </div>
         
         {/* Scroll Indicator - Modern Mouse with scroll animation */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 pointer-events-auto">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-60 pointer-events-auto">
           <div className="flex flex-col items-center space-y-3 opacity-70 hover:opacity-100 transition-opacity duration-300">
             {/* Modern Mouse Icon */}
             <div className="relative">
