@@ -147,12 +147,6 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
               </>
             )}
           </h1>
-          <p className="text-xl md:text-2xl text-gray-700 mb-8 drop-shadow-md">
-            {locale === 'de' 
-              ? 'Alevitische und deutsche Feiertage im chronologischen Überblick'
-              : 'Alevi ve Alman bayramlarının kronolojik genel bakış'
-            }
-          </p>
           <div className="animate-bounce mt-12">
             <svg className="w-6 h-6 mx-auto text-gray-600 drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
