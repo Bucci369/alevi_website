@@ -145,11 +145,11 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
 
               {/* Mobile Calendar Grid - Simplified 3x7 grid (21 days) */}
               <div className="md:hidden grid grid-cols-7 gap-1 text-center flex-1 min-h-0">
-                {/* Mobile Day Headers - Shorter */}
-                {(locale === 'de' ? ['S', 'M', 'D', 'M', 'D', 'F', 'S'] : 
-                                   ['P', 'P', 'S', 'Ç', 'P', 'C', 'C']).map((day) => (
+                {/* Mobile Day Headers - Shorter but unique */}
+                {(locale === 'de' ? ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'] : 
+                                   ['Pa', 'Pt', 'Sa', 'Ça', 'Pe', 'Cu', 'Ct']).map((day, index) => (
                   <div 
-                    key={day} 
+                    key={`mobile-header-${index}-${day}`} 
                     className="aspect-square flex items-center justify-center font-semibold text-gray-600 text-xs border border-gray-400/40 bg-gray-100/20 rounded-sm"
                   >
                     {day}
@@ -159,7 +159,7 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
                 {/* Mobile Calendar Days - Only 21 days */}
                 {mobileCalendarDays.map((dayData, index) => (
                   <div 
-                    key={index} 
+                    key={`mobile-day-${index}`} 
                     className={`aspect-square flex flex-col items-center justify-center text-xs font-medium border rounded-sm transition-colors ${
                       dayData?.event 
                         ? 'text-red-700 border-red-400/60 bg-red-50/20' 
