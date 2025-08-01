@@ -138,16 +138,31 @@ export function FinalTimeline({ locale }: FinalTimelineProps) {
 
   return (
     <div className="relative w-full py-8 md:py-16">
-      {/* Static Background Image - only for this section */}
+      {/* Responsive Background Image */}
       <div 
         className="absolute inset-0 z-0"
         style={{
           backgroundImage: 'url("/sunset-prayer.png")',
-          backgroundSize: '100% 100%',
+          backgroundSize: 'cover', // Responsive: cover für Mobile, contain für Desktop
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
         }}
       ></div>
+      
+      {/* Mobile-optimized background behavior */}
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .absolute.inset-0.z-0 {
+            background-size: cover !important;
+            background-position: center center !important;
+          }
+        }
+        @media (min-width: 769px) {
+          .absolute.inset-0.z-0 {
+            background-size: 100% 100% !important;
+          }
+        }
+      `}</style>
       
       {/* Subtle Aurora-Style Light Shimmer */}
       <div className="absolute inset-0 z-1 overflow-hidden">
