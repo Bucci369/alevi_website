@@ -301,11 +301,11 @@ export function FinalTimeline({ locale }: FinalTimelineProps) {
             
             {/* Mobile Card - Single Column */}
             <div
-              className="timeline-card md:hidden absolute w-[calc(100vw-80px)] max-w-sm p-4 ml-12 rounded-xl shadow-lg border border-white/30 backdrop-blur-md bg-white/25 transition-all duration-700 ease-out opacity-0"
+              className="timeline-card md:hidden absolute w-[calc(100vw-100px)] max-w-xs p-4 ml-12 rounded-xl shadow-lg border border-white/30 backdrop-blur-md bg-white/25 transition-all duration-700 ease-out opacity-0"
               style={{
                 top: `${topPosition - 25}px`,
                 left: '40px',
-                transform: 'translateX(-20px)'
+                transform: 'translateX(0px)'
               }}
             >
               <h3 className="text-base font-bold text-white mb-2 uppercase drop-shadow-lg">

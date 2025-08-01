@@ -94,7 +94,7 @@ export function Header({ locale }: HeaderProps) {
         !isHydrated
           ? 'bg-white/95 backdrop-blur-sm shadow-sm' // Default state for SSR and initial render
           : isScrolled 
-            ? 'bg-white/95 backdrop-blur-lg shadow-lg' 
+            ? 'bg-white/80 backdrop-blur-xl shadow-lg' 
             : 'bg-white/95 backdrop-blur-sm shadow-sm'
       }`}
     >
@@ -105,8 +105,8 @@ export function Header({ locale }: HeaderProps) {
             <Image
               src="/logo-alevido.png"
               alt="Alevitische Gemeinde Dortmund"
-              width={40}
-              height={40}
+              width={56}
+              height={56}
               className="rounded-lg"
             />
             <div className="hidden sm:block">

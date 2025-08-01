@@ -94,9 +94,10 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
         className="h-screen flex items-center justify-center text-center bg-gradient-to-br from-blue-50 via-white to-blue-100 transition-transform duration-100 ease-out relative overflow-hidden"
       >
         {/* Single Calendar - Mobile shows partial view, Desktop shows full view */}
-        <div className="absolute inset-0 flex items-center justify-center p-4 z-10 pointer-events-none overflow-hidden">
-          <div className="w-full h-full max-w-[150vw] max-h-[95vh] flex items-center justify-center opacity-30">
-            <div className="bg-white/30 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl border border-white/20 w-full h-full flex flex-col relative min-w-[800px] min-h-[600px]">
+        {/* Calendar Background - with opacity */}
+        <div className="absolute inset-0 flex items-center justify-center p-4 z-10 overflow-hidden">
+          <div className="w-full h-full max-w-[150vw] max-h-[95vh] flex items-center justify-center">
+            <div className="bg-white/30 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl border border-white/20 w-full h-full flex flex-col relative min-w-[800px] min-h-[600px] opacity-30">
               
               {/* One Calendar Grid - Same for all devices */}
               <div className="grid grid-cols-7 gap-1 sm:gap-2 lg:gap-3 xl:gap-4 text-center flex-1 min-h-0">
@@ -111,44 +112,41 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
                   </div>
                 ))}
                 
-                {/* Calendar Days - Normal size, mobile sees partial */}
+                {/* Calendar Days - with title integrated */}
                 {calendarDays.map((dayData, index) => {
-                  // Check if this is the cell under "Mi" (Wednesday) - position 3 in the first row
-                  const isFirstWeekWednesday = index === 3;
+                  // Special styling for Wednesday cell with title
+                  const isWednesdayWithTitle = index === 3; // Wednesday of first week
                   
                   return (
                     <div 
                       key={index} 
                       className={`aspect-square flex flex-col items-center justify-center text-sm md:text-base lg:text-lg xl:text-xl font-medium border rounded-sm lg:rounded-md relative ${
-                        isFirstWeekWednesday 
-                          ? 'text-gray-900 border-gray-700 bg-white z-50' // Title cell - override opacity with z-index
+                        isWednesdayWithTitle 
+                          ? 'text-gray-900 border-2 border-gray-800 bg-white shadow-xl' // Title cell
                           : dayData?.event 
                             ? 'text-red-700 border-red-400/60 bg-red-50/30' 
                             : 'text-gray-700 border-gray-400/50 bg-white/20'
                       }`}
-                      style={isFirstWeekWednesday ? { opacity: 1 } : {}}
                     >
-                      {isFirstWeekWednesday ? (
-                        // Title in the Wednesday cell
-                        <div className="text-center">
-                          <span className="text-base md:text-xl lg:text-2xl xl:text-3xl font-bold leading-tight">
+                      {isWednesdayWithTitle ? (
+                        <div className="text-center px-1">
+                          <span className="text-sm md:text-base lg:text-xl xl:text-2xl font-bold leading-tight">
                             {locale === 'de' ? (
                               <>
                                 Alevitischer<br />
                                 Kalender<br />
-                                {currentYear}
+                                <span className="text-lg md:text-xl lg:text-3xl xl:text-4xl">{new Date().getFullYear()}</span>
                               </>
                             ) : (
                               <>
                                 Alevi<br />
                                 Takvimi<br />
-                                {currentYear}
+                                <span className="text-lg md:text-xl lg:text-3xl xl:text-4xl">{new Date().getFullYear()}</span>
                               </>
                             )}
                           </span>
                         </div>
                       ) : (
-                        // Normal calendar day
                         <>
                           <span className="font-bold">{dayData?.day}</span>
                           {dayData?.event && (
@@ -165,6 +163,7 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
             </div>
           </div>
         </div>
+
 
         {/* Scroll Indicator - Modern Mouse with scroll animation */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 pointer-events-auto">
