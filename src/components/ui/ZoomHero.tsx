@@ -15,12 +15,10 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
       const heroContainer = document.getElementById('hero-container');
       
       if (hero && heroContainer) {
-        // Zoom-out effect: Start at scale 1, zoom out to 0.8 as user scrolls
+        // Smooth fade-out effect without zoom
         const maxScroll = window.innerHeight;
-        const scale = Math.max(0.8, 1 - (scrolled / maxScroll) * 0.2);
-        const opacity = Math.max(0.3, 1 - (scrolled / maxScroll) * 0.7);
+        const opacity = Math.max(0.1, 1 - (scrolled / maxScroll) * 0.9);
         
-        hero.style.transform = `scale(${scale})`;
         hero.style.opacity = opacity.toString();
         
         // Hide hero when scrolled past timeline to prevent footer overlap
