@@ -137,7 +137,7 @@ export function FinalTimeline({ locale }: FinalTimelineProps) {
   ];
 
   return (
-    <div className="relative w-full py-8 md:py-16">
+    <div className="relative w-full py-8 md:py-16 rounded-t-3xl md:rounded-t-[3rem] shadow-2xl">
       {/* Responsive Background Image */}
       <div 
         className="absolute inset-0 z-0"
@@ -190,7 +190,7 @@ export function FinalTimeline({ locale }: FinalTimelineProps) {
             backgroundSize: '200%, 300%',
             backgroundPosition: '50% 50%, 50% 50%',
             filter: 'blur(1px)',
-            animation: 'aurora 15s ease-in-out infinite alternate'
+            animation: 'aurora 25s ease-in-out infinite'
           }}
         />
       </div>
@@ -199,16 +199,24 @@ export function FinalTimeline({ locale }: FinalTimelineProps) {
       <style jsx>{`
         @keyframes aurora {
           0% {
-            background-position: 50% 50%, 50% 50%;
+            background-position: 50% 50%, 30% 40%;
             opacity: 0.3;
           }
+          25% {
+            background-position: 80% 60%, 70% 30%;
+            opacity: 0.45;
+          }
           50% {
-            background-position: 350% 50%, 150% 50%;
+            background-position: 30% 70%, 90% 60%;
             opacity: 0.5;
           }
-          100% {
-            background-position: 50% 50%, 350% 50%;
+          75% {
+            background-position: 70% 30%, 20% 80%;
             opacity: 0.4;
+          }
+          100% {
+            background-position: 50% 50%, 60% 45%;
+            opacity: 0.35;
           }
         }
       `}</style>
