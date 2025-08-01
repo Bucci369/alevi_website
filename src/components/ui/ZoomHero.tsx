@@ -42,7 +42,7 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
   const currentMonth = new Date().getMonth();
   
   // Generate calendar days with Alevi events
-  const generateCalendarDays = (isMobile: boolean = false) => {
+  const generateCalendarDays = () => {
     const days = [];
     const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
     const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
@@ -63,19 +63,6 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
       31: 'Toplum Yemeği\nGemeindezentrum Dortmund' // Community dinner
     };
     
-    // For mobile: Show only 3 weeks (21 days) for better performance
-    if (isMobile) {
-      // Show only days 1-21 without empty cells
-      for (let day = 1; day <= 21; day++) {
-        days.push({
-          day,
-          event: aleviEvents[day] || null
-        });
-      }
-      return days;
-    }
-    
-    // Desktop: Full calendar
     // Empty cells for start of month
     for (let i = 0; i < firstDayOfMonth; i++) {
       days.push(null);
@@ -93,7 +80,6 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
   };
 
   const calendarDays = generateCalendarDays();
-  const mobileCalendarDays = generateCalendarDays(true);
   const monthNames = {
     de: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 
          'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
@@ -107,13 +93,14 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
         id="hero-section"
         className="h-screen flex items-center justify-center text-center bg-gradient-to-br from-blue-50 via-white to-blue-100 transition-transform duration-100 ease-out relative overflow-hidden"
       >
-        {/* Responsive Giant Background Calendar with INTERACTIVE HOVER */}
-        <div className="absolute inset-0 flex items-center justify-center p-4 z-30">
-          <div className="w-full h-full max-w-[150vw] max-h-[95vh] flex items-center justify-center opacity-30 hover:opacity-60 transition-all duration-500 group">
-            <div className="bg-white/30 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl border border-white/20 w-full h-full flex flex-col relative hover:bg-white/40 transition-all duration-500">
+        {/* Responsive Giant Background Calendar - Same calendar, mobile just zoomed */}
+        <div className="absolute inset-0 flex items-center justify-center p-4 z-10 pointer-events-none">
+          <div className="w-full h-full max-w-[150vw] max-h-[95vh] flex items-center justify-center opacity-30">
+            {/* Mobile: Larger scale to show only part of calendar */}
+            <div className="bg-white/30 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl border border-white/20 w-full h-full flex flex-col relative scale-150 md:scale-100">
               
-              {/* Desktop Calendar Grid - Full calendar with hover effects */}
-              <div className="hidden md:grid grid-cols-7 gap-1 sm:gap-2 lg:gap-3 xl:gap-4 text-center flex-1 min-h-0 relative z-40">
+              {/* Same Calendar Grid for both Mobile and Desktop */}
+              <div className="grid grid-cols-7 gap-1 sm:gap-2 lg:gap-3 xl:gap-4 text-center flex-1 min-h-0">
                 {/* Day Headers */}
                 {(locale === 'de' ? ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'] : 
                                    ['Paz', 'Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt']).map((day) => (
@@ -125,54 +112,20 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
                   </div>
                 ))}
                 
-                {/* Desktop Calendar Days with VISIBLE Interactive Hover */}
+                {/* Calendar Days - Clean, no hover effects */}
                 {calendarDays.map((dayData, index) => (
                   <div 
                     key={index} 
-                    className={`aspect-square flex flex-col items-center justify-center text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-medium border rounded-sm lg:rounded-md transition-all duration-300 cursor-pointer relative ${
+                    className={`aspect-square flex flex-col items-center justify-center text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-medium border rounded-sm lg:rounded-md ${
                       dayData?.event 
-                        ? 'text-red-700 border-red-400/60 bg-red-50/30 hover:bg-red-400/80 hover:border-red-800 hover:scale-125 hover:shadow-2xl hover:rotate-3 hover:text-white' 
-                        : 'text-gray-700 border-gray-400/50 bg-white/20 hover:bg-blue-400/80 hover:border-blue-700 hover:scale-115 hover:shadow-xl hover:rotate-1 hover:text-white'
+                        ? 'text-red-700 border-red-400/60 bg-red-50/30' 
+                        : 'text-gray-700 border-gray-400/50 bg-white/20'
                     }`}
-                    style={{ zIndex: 50 }}
                   >
-                    <span className="font-bold transition-all duration-300">{dayData?.day}</span>
+                    <span className="font-bold">{dayData?.day}</span>
                     {dayData?.event && (
-                      <span className="text-[6px] sm:text-[8px] md:text-[10px] lg:text-xs xl:text-sm font-normal text-red-600 leading-tight mt-0.5 text-center px-0.5 whitespace-pre-line transition-all duration-300">
+                      <span className="text-[6px] sm:text-[8px] md:text-[10px] lg:text-xs xl:text-sm font-normal text-red-600 leading-tight mt-0.5 text-center px-0.5 whitespace-pre-line">
                         {dayData.event}
-                      </span>
-                    )}
-                  </div>
-                ))}
-              </div>
-
-              {/* Mobile Calendar Grid - Simplified 3x7 grid (21 days) - No hover effects */}
-              <div className="md:hidden grid grid-cols-7 gap-1 text-center flex-1 min-h-0 select-none">
-                {/* Mobile Day Headers - Shorter but unique */}
-                {(locale === 'de' ? ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'] : 
-                                   ['Pa', 'Pt', 'Sa', 'Ça', 'Pe', 'Cu', 'Ct']).map((day, index) => (
-                  <div 
-                    key={`mobile-header-${index}-${day}`} 
-                    className="aspect-square flex items-center justify-center font-semibold text-gray-600 text-xs border border-gray-400/40 bg-gray-100/20 rounded-sm"
-                  >
-                    {day}
-                  </div>
-                ))}
-                
-                {/* Mobile Calendar Days - Only 21 days */}
-                {mobileCalendarDays.map((dayData, index) => (
-                  <div 
-                    key={`mobile-day-${index}`} 
-                    className={`aspect-square flex flex-col items-center justify-center text-xs font-medium border rounded-sm transition-colors ${
-                      dayData?.event 
-                        ? 'text-red-700 border-red-400/60 bg-red-50/20' 
-                        : 'text-gray-700 border-gray-400/50 bg-white/10'
-                    }`}
-                  >
-                    <span className="font-bold text-xs">{dayData?.day}</span>
-                    {dayData?.event && (
-                      <span className="text-[6px] font-normal text-red-600 leading-tight mt-0.5 text-center px-0.5">
-                        •
                       </span>
                     )}
                   </div>
@@ -182,8 +135,8 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
           </div>
         </div>
 
-        {/* Main Content - Over the calendar but lower z-index */}
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pointer-events-none">
+        {/* Main Content */}
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 pointer-events-none">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-black drop-shadow-lg">
             {locale === 'de' ? (
               <>
@@ -200,7 +153,7 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
         </div>
         
         {/* Scroll Indicator - Modern Mouse with scroll animation */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-60 pointer-events-auto">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 pointer-events-auto">
           <div className="flex flex-col items-center space-y-3 opacity-70 hover:opacity-100 transition-opacity duration-300">
             {/* Modern Mouse Icon */}
             <div className="relative">
