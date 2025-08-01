@@ -44,13 +44,16 @@ export default async function AboutPage({ params }: AboutPageProps) {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section - direkt auf weißem Board */}
       <section className="py-16 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-black">
-          {locale === 'de' ? 'Über uns' : 'Hakkımızda'}
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-black">
+          {locale === 'de' 
+            ? 'Alevitische Gemeinde Dortmund e.V.' 
+            : 'Dortmund Alevi Kültür Derneği'
+          }
         </h1>
         <p className="text-xl md:text-2xl text-gray-700 mb-16">
           {locale === 'de' 
-            ? 'Alevitische Gemeinde Dortmund e.V.'
-            : 'Dortmund Alevi Cemevi'
+            ? 'Herzlich willkommen in unserer Gemeinde'
+            : 'Cemaatimize hoş geldiniz'
           }
         </p>
       </section>
