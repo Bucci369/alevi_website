@@ -115,7 +115,7 @@ export const ReligiousTimeline = ({ data, locale }: ReligiousTimelineProps) => {
           style={{
             height: height + "px",
           }}
-          className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px]"
+          className="absolute left-8 md:left-8 top-0 overflow-hidden w-[2px]"
         >
           <motion.div
             style={{

@@ -91,44 +91,6 @@ export default async function HomePage({ params }: HomePageProps) {
 
       {/* Feature Highlights Section */}
       <FeatureHighlights locale={locale} />
-
-      {/* Upcoming Events Section - Full Width Design */}
-      <section className="py-24 bg-gradient-to-br from-gray-50 to-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header with side layout */}
-          <ScrollReveal animationType="fadeUp" delay={200}>
-            <div className="flex flex-col lg:flex-row lg:justify-between lg:items-end mb-12 lg:mb-16">
-              <div className="mb-6 lg:mb-0">
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                  {t.events.upcoming}
-                </h2>
-                <p className="text-lg text-gray-600 max-w-lg">
-                  {locale === 'de' 
-                    ? 'Entdecken Sie unsere kommenden Veranstaltungen und werden Sie Teil unserer lebendigen Gemeinschaft.'
-                    : 'Yaklaşan etkinliklerimizi keşfedin ve canlı topluluğumuzun bir parçası olun.'
-                  }
-                </p>
-              </div>
-              <Link 
-                href={`/${locale}/aktivitaeten`} 
-                className="inline-flex items-center px-6 py-3 bg-gray-900 text-white font-semibold rounded-full hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg group"
-              >
-                {t.events.allEvents}
-                <svg className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
-            </div>
-          </ScrollReveal>
-
-          {/* Events Grid - Clean Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {currentEvents.map((event, index) => (
-              <EventCard key={event.id} event={event} locale={locale} />
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   )
 }
