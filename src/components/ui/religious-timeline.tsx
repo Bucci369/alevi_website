@@ -48,7 +48,7 @@ export const ReligiousTimeline = ({ data, locale }: ReligiousTimelineProps) => {
       className="w-full bg-gradient-to-br from-gray-50 to-white dark:from-neutral-950 dark:to-neutral-900 font-sans md:px-10 relative"
       ref={containerRef}
     >
-      <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
+      <div className="max-w-7xl mx-auto py-20 px-6 md:px-8 lg:px-10">
         <h2 className="text-2xl md:text-4xl lg:text-5xl mb-4 text-gray-900 dark:text-white max-w-4xl font-bold">
           {locale === 'de' 
             ? 'Unser Glaube'
@@ -63,7 +63,7 @@ export const ReligiousTimeline = ({ data, locale }: ReligiousTimelineProps) => {
         </p>
       </div>
 
-      <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
+      <div ref={ref} className="relative max-w-7xl mx-auto pb-20 px-4 md:px-0">
         {data.map((item, index) => (
           <div
             key={`timeline-${item.year}-${index}`}
@@ -85,7 +85,7 @@ export const ReligiousTimeline = ({ data, locale }: ReligiousTimelineProps) => {
               </h3>
             </div>
 
-            <div className="relative pl-20 pr-4 md:pl-4 w-full">
+            <div className="relative pl-20 pr-6 md:pl-4 md:pr-8 w-full">
               <h3 
                 key={`mobile-year-${item.year}-${index}`}
                 className="md:hidden block text-2xl mb-4 text-left font-bold text-gray-400 dark:text-neutral-500"
@@ -94,7 +94,7 @@ export const ReligiousTimeline = ({ data, locale }: ReligiousTimelineProps) => {
               </h3>
               <div 
                 key={`card-${item.year}-${index}`}
-                className="bg-white dark:bg-neutral-800 rounded-xl p-6 md:p-8 shadow-lg border border-gray-100 dark:border-neutral-700 mb-8"
+                className="bg-white dark:bg-neutral-800 rounded-xl p-4 md:p-6 lg:p-8 shadow-lg border border-gray-100 dark:border-neutral-700 mb-8 max-w-full"
               >
                 <h4 
                   key={`title-${item.year}-${index}`}
