@@ -11,8 +11,13 @@ export function FinalTimeline({ locale }: FinalTimelineProps) {
   const timelineRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
-    // Smooth scroll für die ganze Seite
-    document.documentElement.style.scrollBehavior = 'smooth';
+    // Mobile-optimiertes Scroll-Verhalten
+    const isMobile = window.innerWidth <= 768;
+    
+    // Nur auf Desktop smooth scroll aktivieren
+    if (!isMobile) {
+      document.documentElement.style.scrollBehavior = 'smooth';
+    }
     
     const observer = new IntersectionObserver(
       (entries) => {
@@ -27,8 +32,9 @@ export function FinalTimeline({ locale }: FinalTimelineProps) {
         });
       },
       {
-        threshold: 0.3,
-        rootMargin: '-10% 0px -10% 0px'
+        // Mobile-optimierte Werte
+        threshold: isMobile ? 0.1 : 0.3,
+        rootMargin: isMobile ? '-5% 0px -5% 0px' : '-10% 0px -10% 0px'
       }
     );
 
@@ -37,7 +43,10 @@ export function FinalTimeline({ locale }: FinalTimelineProps) {
 
     return () => {
       observer.disconnect();
-      document.documentElement.style.scrollBehavior = 'auto';
+      // Nur auf Desktop zurücksetzen
+      if (!isMobile) {
+        document.documentElement.style.scrollBehavior = 'auto';
+      }
     };
   }, []);
   // Dynamische Datumsberechnung für aktuelles Jahr
@@ -155,6 +164,18 @@ export function FinalTimeline({ locale }: FinalTimelineProps) {
           .absolute.inset-0.z-0 {
             background-size: cover !important;
             background-position: center center !important;
+          }
+          
+          /* Native mobile scroll optimization */
+          * {
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: auto !important;
+          }
+          
+          /* Better touch scrolling performance */
+          body {
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
           }
         }
         @media (min-width: 769px) {
