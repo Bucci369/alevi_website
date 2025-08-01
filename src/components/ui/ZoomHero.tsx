@@ -96,7 +96,6 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
         {/* Single Calendar - Mobile shows partial view, Desktop shows full view */}
         <div className="absolute inset-0 flex items-center justify-center p-4 z-10 pointer-events-none overflow-hidden">
           <div className="w-full h-full max-w-[150vw] max-h-[95vh] flex items-center justify-center opacity-30">
-            {/* Calendar container - normal size, mobile just shows what fits */}
             <div className="bg-white/30 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl border border-white/20 w-full h-full flex flex-col relative min-w-[800px] min-h-[600px]">
               
               {/* One Calendar Grid - Same for all devices */}
@@ -113,45 +112,60 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
                 ))}
                 
                 {/* Calendar Days - Normal size, mobile sees partial */}
-                {calendarDays.map((dayData, index) => (
-                  <div 
-                    key={index} 
-                    className={`aspect-square flex flex-col items-center justify-center text-sm md:text-base lg:text-lg xl:text-xl font-medium border rounded-sm lg:rounded-md ${
-                      dayData?.event 
-                        ? 'text-red-700 border-red-400/60 bg-red-50/30' 
-                        : 'text-gray-700 border-gray-400/50 bg-white/20'
-                    }`}
-                  >
-                    <span className="font-bold">{dayData?.day}</span>
-                    {dayData?.event && (
-                      <span className="text-xs md:text-sm lg:text-base font-normal text-red-600 leading-tight mt-0.5 text-center px-0.5 whitespace-pre-line">
-                        {dayData.event}
-                      </span>
-                    )}
-                  </div>
-                ))}
+                {calendarDays.map((dayData, index) => {
+                  // Check if this is the cell under "Mi" (Wednesday) - position 3 in the first row
+                  const isFirstWeekWednesday = index === 3;
+                  
+                  return (
+                    <div 
+                      key={index} 
+                      className={`aspect-square flex flex-col items-center justify-center text-sm md:text-base lg:text-lg xl:text-xl font-medium border rounded-sm lg:rounded-md relative ${
+                        isFirstWeekWednesday 
+                          ? 'text-gray-900 border-gray-700 bg-white z-50' // Title cell - override opacity with z-index
+                          : dayData?.event 
+                            ? 'text-red-700 border-red-400/60 bg-red-50/30' 
+                            : 'text-gray-700 border-gray-400/50 bg-white/20'
+                      }`}
+                      style={isFirstWeekWednesday ? { opacity: 1 } : {}}
+                    >
+                      {isFirstWeekWednesday ? (
+                        // Title in the Wednesday cell
+                        <div className="text-center">
+                          <span className="text-base md:text-xl lg:text-2xl xl:text-3xl font-bold leading-tight">
+                            {locale === 'de' ? (
+                              <>
+                                Alevitischer<br />
+                                Kalender<br />
+                                {currentYear}
+                              </>
+                            ) : (
+                              <>
+                                Alevi<br />
+                                Takvimi<br />
+                                {currentYear}
+                              </>
+                            )}
+                          </span>
+                        </div>
+                      ) : (
+                        // Normal calendar day
+                        <>
+                          <span className="font-bold">{dayData?.day}</span>
+                          {dayData?.event && (
+                            <span className="text-xs md:text-sm lg:text-base font-normal text-red-600 leading-tight mt-0.5 text-center px-0.5 whitespace-pre-line">
+                              {dayData.event}
+                            </span>
+                          )}
+                        </>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
         </div>
 
-        {/* Main Content */}
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 pointer-events-none">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-700 drop-shadow-lg">
-            {locale === 'de' ? (
-              <>
-                Alevitischer Kalender<br />
-                {currentYear}
-              </>
-            ) : (
-              <>
-                Alevi Takvimi<br />
-                {currentYear}
-              </>
-            )}
-          </h1>
-        </div>
-        
         {/* Scroll Indicator - Modern Mouse with scroll animation */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 pointer-events-auto">
           <div className="flex flex-col items-center space-y-3 opacity-70 hover:opacity-100 transition-opacity duration-300">
