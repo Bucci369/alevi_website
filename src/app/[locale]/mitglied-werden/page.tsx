@@ -1,5 +1,6 @@
 import { Locale } from '@/types'
 import { translations } from '@/lib/i18n/config'
+import { DonationSection } from '@/components/ui/DonationSection'
 
 interface MembershipPageProps {
   params: Promise<{ locale: Locale }>
@@ -176,6 +177,9 @@ export default async function MembershipPage({ params }: MembershipPageProps) {
           </div>
         </div>
       </section>
+
+      {/* Donation Section */}
+      <DonationSection locale={locale} />
 
       {/* Download Section */}
       <section className="py-16 bg-white">

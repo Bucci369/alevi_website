@@ -15,11 +15,11 @@ export function EventCard({ event, locale }: EventCardProps) {
   const description = event.description[locale] || event.description.de
 
   return (
-    <div className="mobile-card bg-white rounded-lg shadow-md overflow-hidden transition-shadow duration-300 border border-gray-200">
+    <div className="mobile-card bg-white rounded-xl shadow-md overflow-hidden transition-shadow duration-300 border border-gray-200">
       {/* Event Date Badge */}
       <div className="relative">
         <div className="absolute top-4 left-4 z-10">
-          <div className="bg-gray-800 text-white px-3 py-2 rounded-lg text-center shadow-lg">
+          <div className="bg-gray-800 text-white px-3 py-2 rounded-xl text-center shadow-lg">
             <div className="text-xs font-medium uppercase">
               {format(event.date, 'MMM', { locale: dateLocale })}
             </div>
@@ -88,7 +88,7 @@ export function EventCard({ event, locale }: EventCardProps) {
         <div className="flex items-center justify-between">
           <Link
             href={`/${locale}/aktivitaeten/${event.slug}`}
-            className="inline-flex items-center px-3 md:px-4 py-2 bg-gray-800 text-white text-xs md:text-sm font-medium rounded-md"
+            className="inline-flex items-center px-3 md:px-4 py-2 bg-gray-800 text-white text-xs md:text-sm font-medium rounded-xl"
           >
             {locale === 'de' ? 'Details' : 'Detaylar'}
           </Link>

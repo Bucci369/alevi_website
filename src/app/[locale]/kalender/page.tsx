@@ -1,5 +1,5 @@
 import { Locale } from '@/types'
-import { FullScreenCalendar } from '@/components/ui/FullScreenCalendar'
+import { FinalTimeline } from '@/components/ui/FinalTimeline'
 
 interface CalendarPageProps {
   params: Promise<{ locale: Locale }>
@@ -9,28 +9,26 @@ export default async function CalendarPage({ params }: CalendarPageProps) {
   const { locale } = await params
 
   return (
-    <div className="bg-white">
-      {/* Hero Section */}
+    <div>
+      {/* Hero Section - consistent with other pages */}
       <section className="py-16 text-center bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-black">
-            {locale === 'de' ? 'Feiertagskalender 2025' : 'Bayram Takvimi 2025'}
+            {locale === 'de' ? `Alevitischer Kalender ${new Date().getFullYear()}` : `Alevi Takvimi ${new Date().getFullYear()}`}
           </h1>
           <p className="text-xl md:text-2xl text-gray-700 mb-16">
             {locale === 'de' 
-              ? 'Deutsche und alevitische Feiertage im Jahresüberblick'
-              : 'Alman ve Alevi bayramlarının yıllık genel aussehen'
+              ? 'Alevitische und deutsche Feiertage im chronologischen Überblick'
+              : 'Alevi ve Alman bayramlarının kronolojik genel bakış'
             }
           </p>
         </div>
-        </section>
-
-      {/* Calendar Section */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FullScreenCalendar locale={locale} />
-        </div>
       </section>
+
+      {/* Calendar Section - Parallax Timeline */}
+      <FinalTimeline locale={locale} />
+      
+      {/* Footer wird automatisch nach Timeline angezeigt */}
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import { EventCard } from '@/components/ui/EventCard'
 import { AuroraBackgroundDemo } from '@/components/ui/aurora-background-demo'
-import { DemoOne } from '@/components/ui/parallax-demo'
+import { FeatureHighlights } from '@/components/ui/FeatureHighlights'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { Locale, Event } from '@/types'
 import { translations } from '@/lib/i18n/config'
@@ -89,8 +89,8 @@ export default async function HomePage({ params }: HomePageProps) {
       {/* Hero Section with Aurora Background */}
       <AuroraBackgroundDemo locale={locale} />
 
-      {/* Parallax Content Sections */}
-      <DemoOne />
+      {/* Feature Highlights Section */}
+      <FeatureHighlights locale={locale} />
 
       {/* Upcoming Events Section - Full Width Design */}
       <section className="py-24 bg-gradient-to-br from-gray-50 to-gray-100">
@@ -124,9 +124,7 @@ export default async function HomePage({ params }: HomePageProps) {
           {/* Events Grid - Clean Layout */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {currentEvents.map((event, index) => (
-              <ScrollReveal key={event.id} animationType="fadeUp" delay={300 + (index * 150)}>
-                <EventCard event={event} locale={locale} />
-              </ScrollReveal>
+              <EventCard key={event.id} event={event} locale={locale} />
             ))}
           </div>
         </div>
