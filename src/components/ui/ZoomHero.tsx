@@ -46,7 +46,7 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
     const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
     
     // Detailed Alevi events for current month
-    const aleviEvents = {
+    const aleviEvents: { [key: number]: string } = {
       2: 'Koro Çalışması 18:00\nGemeindezentrum Dortmund', // Choir practice
       3: 'Cem Ayini 19:00\nGemeindezentrum Dortmund', // Cem ceremony
       7: 'Bağlama Kursu 18:30\nGemeindezentrum Dortmund', // Saz course

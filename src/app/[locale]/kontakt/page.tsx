@@ -20,6 +20,10 @@ export default async function ContactPage({ params }: ContactPageProps) {
       content: '+49 (0) 231 83 39 26'
     },
     {
+      title: { de: 'Fax', tr: 'Faks' },
+      content: '+49 (0) 231 81 82 60'
+    },
+    {
       title: { de: 'E-Mail', tr: 'E-posta' },
       content: 'info@alevido.de'
     },
@@ -76,7 +80,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
             {locale === 'de' ? 'Kontaktinformationen' : 'İletişim Bilgileri'}
           </h2>
-          <div className="mobile-card-grid mobile-card-grid-4">
+          <div className="mobile-card-grid mobile-card-grid-5">
             {contactInfo.map((info, index) => (
               <div key={index} className="mobile-card bg-white rounded-lg shadow-md p-6 text-center border border-gray-200">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">
