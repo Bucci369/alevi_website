@@ -103,37 +103,37 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
         id="hero-section"
         className="h-screen flex items-center justify-center text-center bg-gradient-to-br from-blue-50 via-white to-blue-100 transition-transform duration-100 ease-out relative overflow-hidden"
       >
-        {/* Responsive Giant Background Calendar */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-15 select-none pointer-events-none p-4">
-          <div className="w-full h-full max-w-[150vw] max-h-[95vh] flex items-center justify-center">
+        {/* Responsive Giant Background Calendar with INTERACTIVE HOVER */}
+        <div className="absolute inset-0 flex items-center justify-center p-4 z-10">
+          <div className="w-full h-full max-w-[150vw] max-h-[95vh] flex items-center justify-center opacity-30 hover:opacity-50 transition-opacity duration-500">
             <div className="bg-white/30 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl border border-white/20 w-full h-full flex flex-col">
               
-              {/* Desktop Calendar Grid - Full calendar */}
+              {/* Desktop Calendar Grid - Full calendar with hover effects */}
               <div className="hidden md:grid grid-cols-7 gap-1 sm:gap-2 lg:gap-3 xl:gap-4 text-center flex-1 min-h-0">
                 {/* Day Headers */}
                 {(locale === 'de' ? ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'] : 
                                    ['Paz', 'Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt']).map((day) => (
                   <div 
                     key={day} 
-                    className="aspect-square flex items-center justify-center font-semibold text-gray-600 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl border border-gray-400/40 bg-gray-100/20 rounded-sm lg:rounded-md"
+                    className="aspect-square flex items-center justify-center font-semibold text-gray-600 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl border border-gray-400/40 bg-gray-100/20 rounded-sm lg:rounded-md select-none"
                   >
                     {day}
                   </div>
                 ))}
                 
-                {/* Desktop Calendar Days */}
+                {/* Desktop Calendar Days with VISIBLE Interactive Hover */}
                 {calendarDays.map((dayData, index) => (
                   <div 
                     key={index} 
-                    className={`aspect-square flex flex-col items-center justify-center text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-medium border rounded-sm lg:rounded-md transition-colors ${
+                    className={`aspect-square flex flex-col items-center justify-center text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-medium border rounded-sm lg:rounded-md transition-all duration-500 cursor-pointer group relative transform ${
                       dayData?.event 
-                        ? 'text-red-700 border-red-400/60 bg-red-50/20 hover:bg-red-100/30' 
-                        : 'text-gray-700 border-gray-400/50 bg-white/10 hover:bg-white/20'
+                        ? 'text-red-700 border-red-400/60 bg-red-50/20 hover:bg-red-300 hover:border-red-700 hover:scale-125 hover:shadow-2xl hover:opacity-100 hover:z-50' 
+                        : 'text-gray-700 border-gray-400/50 bg-white/10 hover:bg-blue-200 hover:border-blue-600 hover:scale-115 hover:shadow-xl hover:opacity-100 hover:z-50'
                     }`}
                   >
-                    <span className="font-bold">{dayData?.day}</span>
+                    <span className="font-bold group-hover:font-black transition-all duration-500 relative z-10">{dayData?.day}</span>
                     {dayData?.event && (
-                      <span className="text-[6px] sm:text-[8px] md:text-[10px] lg:text-xs xl:text-sm font-normal text-red-600 leading-tight mt-0.5 text-center px-0.5 whitespace-pre-line">
+                      <span className="text-[6px] sm:text-[8px] md:text-[10px] lg:text-xs xl:text-sm font-normal text-red-600 leading-tight mt-0.5 text-center px-0.5 whitespace-pre-line group-hover:font-bold group-hover:text-red-800 transition-all duration-500 relative z-10">
                         {dayData.event}
                       </span>
                     )}
@@ -141,8 +141,8 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
                 ))}
               </div>
 
-              {/* Mobile Calendar Grid - Simplified 3x7 grid (21 days) */}
-              <div className="md:hidden grid grid-cols-7 gap-1 text-center flex-1 min-h-0">
+              {/* Mobile Calendar Grid - Simplified 3x7 grid (21 days) - No hover effects */}
+              <div className="md:hidden grid grid-cols-7 gap-1 text-center flex-1 min-h-0 select-none">
                 {/* Mobile Day Headers - Shorter but unique */}
                 {(locale === 'de' ? ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'] : 
                                    ['Pa', 'Pt', 'Sa', 'Ça', 'Pe', 'Cu', 'Ct']).map((day, index) => (
@@ -177,8 +177,8 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
           </div>
         </div>
 
-        {/* Main Content - Over the calendar */}
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Main Content - Over the calendar but with pointer-events-none */}
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 pointer-events-none">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-black drop-shadow-lg">
             {locale === 'de' ? (
               <>
@@ -195,7 +195,7 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
         </div>
         
         {/* Scroll Indicator - Modern Mouse with scroll animation */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 pointer-events-auto">
           <div className="flex flex-col items-center space-y-3 opacity-70 hover:opacity-100 transition-opacity duration-300">
             {/* Modern Mouse Icon */}
             <div className="relative">
