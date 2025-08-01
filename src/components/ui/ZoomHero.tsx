@@ -93,30 +93,30 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
         id="hero-section"
         className="h-screen flex items-center justify-center text-center bg-gradient-to-br from-blue-50 via-white to-blue-100 transition-transform duration-100 ease-out relative overflow-hidden"
       >
-        {/* Responsive Giant Background Calendar - Same calendar, mobile just zoomed */}
-        <div className="absolute inset-0 flex items-center justify-center p-4 z-10 pointer-events-none">
+        {/* Single Calendar - Mobile shows partial view, Desktop shows full view */}
+        <div className="absolute inset-0 flex items-center justify-center p-4 z-10 pointer-events-none overflow-hidden">
           <div className="w-full h-full max-w-[150vw] max-h-[95vh] flex items-center justify-center opacity-30">
-            {/* Mobile: Larger scale to show only part of calendar */}
-            <div className="bg-white/30 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl border border-white/20 w-full h-full flex flex-col relative scale-150 md:scale-100">
+            {/* Calendar container - normal size, mobile just shows what fits */}
+            <div className="bg-white/30 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl border border-white/20 w-full h-full flex flex-col relative min-w-[800px] min-h-[600px]">
               
-              {/* Same Calendar Grid for both Mobile and Desktop */}
+              {/* One Calendar Grid - Same for all devices */}
               <div className="grid grid-cols-7 gap-1 sm:gap-2 lg:gap-3 xl:gap-4 text-center flex-1 min-h-0">
                 {/* Day Headers */}
                 {(locale === 'de' ? ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'] : 
                                    ['Paz', 'Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt']).map((day) => (
                   <div 
                     key={day} 
-                    className="aspect-square flex items-center justify-center font-semibold text-gray-600 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl border border-gray-400/40 bg-gray-100/20 rounded-sm lg:rounded-md select-none"
+                    className="aspect-square flex items-center justify-center font-semibold text-gray-600 text-sm md:text-base lg:text-lg xl:text-xl border border-gray-400/40 bg-gray-100/20 rounded-sm lg:rounded-md select-none"
                   >
                     {day}
                   </div>
                 ))}
                 
-                {/* Calendar Days - Clean, no hover effects */}
+                {/* Calendar Days - Normal size, mobile sees partial */}
                 {calendarDays.map((dayData, index) => (
                   <div 
                     key={index} 
-                    className={`aspect-square flex flex-col items-center justify-center text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-medium border rounded-sm lg:rounded-md ${
+                    className={`aspect-square flex flex-col items-center justify-center text-sm md:text-base lg:text-lg xl:text-xl font-medium border rounded-sm lg:rounded-md ${
                       dayData?.event 
                         ? 'text-red-700 border-red-400/60 bg-red-50/30' 
                         : 'text-gray-700 border-gray-400/50 bg-white/20'
@@ -124,7 +124,7 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
                   >
                     <span className="font-bold">{dayData?.day}</span>
                     {dayData?.event && (
-                      <span className="text-[6px] sm:text-[8px] md:text-[10px] lg:text-xs xl:text-sm font-normal text-red-600 leading-tight mt-0.5 text-center px-0.5 whitespace-pre-line">
+                      <span className="text-xs md:text-sm lg:text-base font-normal text-red-600 leading-tight mt-0.5 text-center px-0.5 whitespace-pre-line">
                         {dayData.event}
                       </span>
                     )}
