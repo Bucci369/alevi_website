@@ -137,7 +137,7 @@ export function FinalTimeline({ locale }: FinalTimelineProps) {
   ];
 
   return (
-    <div className="relative w-full py-8 md:py-16 rounded-t-3xl md:rounded-t-[3rem] shadow-2xl">
+    <div className="relative w-full py-8 md:py-16 shadow-2xl">
       {/* Responsive Background Image */}
       <div 
         className="absolute inset-0 z-0"
