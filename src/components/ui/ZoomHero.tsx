@@ -137,7 +137,7 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
 
         {/* Main Content */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 pointer-events-none">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-black drop-shadow-lg">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-700 drop-shadow-lg">
             {locale === 'de' ? (
               <>
                 Alevitischer Kalender<br />
