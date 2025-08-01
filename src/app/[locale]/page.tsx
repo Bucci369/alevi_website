@@ -1,10 +1,14 @@
+"use client";
+
 import { EventCard } from '@/components/ui/EventCard'
 import { AuroraBackgroundDemo } from '@/components/ui/aurora-background-demo'
-import { FeatureHighlights } from '@/components/ui/FeatureHighlights'
-import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { Locale, Event } from '@/types'
 import { translations } from '@/lib/i18n/config'
 import Link from 'next/link'
+import { useEffect, useRef, useState } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { Counter } from '@/components/ui/Counter'
+import { ScrollReveal } from '@/components/ui/ScrollReveal'
 
 interface HomePageProps {
   params: Promise<{ locale: Locale }>
@@ -80,17 +84,49 @@ const currentEvents: Event[] = [
   }
 ]
 
-export default async function HomePage({ params }: HomePageProps) {
-  const { locale } = await params
-  const t = translations[locale]
+export default function HomePage({ params }: HomePageProps) {
+  const [locale, setLocale] = useState<Locale>('de')
+  
+  useEffect(() => {
+    params.then(({ locale }) => setLocale(locale))
+  }, [params])
+
+  const boardMembers = [
+    { name: 'Aziz Aslandemir', role: '1. Vorsitzender', role_tr: '1. Başkan' },
+    { name: 'Hakime Göleli', role: '2. Vorsitzende', role_tr: '2. Başkan' },
+    { name: 'Vedat Altundal', role: 'Kassenwart', role_tr: 'Sayman' },
+    { name: 'Arslan Kaya', role: 'stellv. Kassenwart', role_tr: 'Yardımcı Sayman' },
+    { name: 'Hakime Göleli', role: 'Öffentlichkeitsarbeit', role_tr: 'Halkla İlişkiler' },
+    { name: 'Melek Yildiz', role: 'Beisitzerin', role_tr: 'Üye' },
+    { name: 'Hülya Polat', role: 'Beisitzerin', role_tr: 'Üye' }
+  ]
+
+  const stats = [
+    { 
+      number: 400, 
+      label: locale === 'de' ? 'Mitgliedsfamilien' : 'Üye Aileler',
+      suffix: '+'
+    },
+    { 
+      number: 1988, 
+      label: locale === 'de' ? 'Gründungsjahr' : 'Kuruluş Yılı'
+    },
+    { 
+      number: 1000, 
+      label: locale === 'de' ? 'Alevitische Familien in Dortmund' : 'Dortmund\'da Alevi Aileler'
+    },
+    { 
+      number: 5000, 
+      label: locale === 'de' ? 'Aleviten in Dortmund' : 'Dortmund\'da Aleviler'
+    }
+  ]
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section with Aurora Background */}
-      <AuroraBackgroundDemo locale={locale} />
-
-      {/* Feature Highlights Section */}
-      <FeatureHighlights locale={locale} />
+    <div className="relative">
+      {/* Aurora Background - Fixed, always visible */}
+      <div className="fixed inset-0 overflow-hidden z-0">
+        <AuroraBackgroundDemo locale={locale} />
+      </div>
     </div>
   )
 }

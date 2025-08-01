@@ -3,6 +3,8 @@ import { Footer } from '@/components/layout/Footer'
 import { ScrollToTop } from '@/components/ui/ScrollToTop'
 import { Locale } from '@/types'
 import { locales } from '@/lib/i18n/config'
+import { ConditionalFooter } from '@/components/layout/ConditionalFooter'
+import { ConditionalHeader } from '@/components/layout/ConditionalHeader'
 
 interface LocaleLayoutProps {
   children: React.ReactNode
@@ -25,7 +27,7 @@ export default async function LocaleLayout({
       <main className="flex-grow" id="main-content">
         {children}
       </main>
-      <Footer locale={locale} />
+      <ConditionalFooter locale={locale} />
       <ScrollToTop />
     </div>
   )

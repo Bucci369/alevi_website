@@ -18,8 +18,8 @@ export function AuroraBackgroundDemo({ locale }: AuroraBackgroundDemoProps) {
           <div className="text-2xl md:text-5xl font-semibold dark:text-neutral-200 py-4 text-center max-w-4xl">
             <Typewriter
               text={locale === 'de' 
-                ? 'Eine Gemeinschaft der Vielfalt, des Respekts und der kulturellen Bereicherung.'
-                : 'Çeşitlilik, saygı ve kültürel zenginlik topluluğu.'
+                ? 'Eine Gemeinschaft der Vielfalt und des Respekts.'
+                : 'Çeşitlilik ve saygı topluluğu.'
               }
               speed={50}
               loop={false}
