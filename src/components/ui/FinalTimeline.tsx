@@ -137,7 +137,7 @@ export function FinalTimeline({ locale }: FinalTimelineProps) {
   ];
 
   return (
-    <div className="relative w-full py-16">
+    <div className="relative w-full py-8 md:py-16">
       {/* Static Background Image - only for this section */}
       <div 
         className="absolute inset-0 z-0"
@@ -202,17 +202,28 @@ export function FinalTimeline({ locale }: FinalTimelineProps) {
       <div className="absolute inset-0 bg-black/20 z-2"></div>
       
       {/* Timeline Container */}
-      <div ref={timelineRef} className="relative max-w-4xl mx-auto z-20" style={{ minHeight: '1600px' }}>
+      <div ref={timelineRef} className="relative max-w-4xl mx-auto px-4 z-20" style={{ minHeight: '1600px' }}>
       
-      {/* Timeline Line */}
+      {/* Timeline Line - Desktop centered, Mobile left-aligned */}
       <div 
-        className="absolute bg-gray-600 z-10"
+        className="absolute bg-gray-600 z-10 hidden md:block"
         style={{
           left: '50%',
           top: '50px',
           bottom: '50px',
           width: '4px',
           transform: 'translateX(-2px)'
+        }}
+      ></div>
+      
+      {/* Mobile Timeline Line */}
+      <div 
+        className="absolute bg-gray-600 z-10 md:hidden"
+        style={{
+          left: '20px',
+          top: '50px',
+          bottom: '50px',
+          width: '3px'
         }}
       ></div>
       
@@ -223,9 +234,9 @@ export function FinalTimeline({ locale }: FinalTimelineProps) {
         
         return (
           <div key={event.id}>
-            {/* Timeline Dot */}
+            {/* Timeline Dot - Desktop centered, Mobile left */}
             <div
-              className="absolute w-6 h-6 bg-gray-700 rounded-full border-4 border-white shadow-xl z-20"
+              className="absolute w-6 h-6 bg-gray-700 rounded-full border-4 border-white shadow-xl z-20 hidden md:block"
               style={{
                 left: '50%',
                 top: `${topPosition}px`,
@@ -233,9 +244,19 @@ export function FinalTimeline({ locale }: FinalTimelineProps) {
               }}
             ></div>
             
-            {/* Glassmorphism Card with One-Shot Fly-in Animation */}
+            {/* Mobile Timeline Dot */}
             <div
-              className={`timeline-card ${isLeft ? 'left-card' : 'right-card'} absolute w-80 p-6 rounded-2xl shadow-xl border border-white/30 backdrop-blur-md bg-white/20 transition-all duration-700 ease-out opacity-0`}
+              className="absolute w-5 h-5 bg-gray-700 rounded-full border-3 border-white shadow-xl z-20 md:hidden"
+              style={{
+                left: '20px',
+                top: `${topPosition}px`,
+                transform: 'translateX(-10px)'
+              }}
+            ></div>
+            
+            {/* Desktop Glassmorphism Card */}
+            <div
+              className={`timeline-card hidden md:block ${isLeft ? 'left-card' : 'right-card'} absolute w-80 p-6 rounded-2xl shadow-xl border border-white/30 backdrop-blur-md bg-white/20 transition-all duration-700 ease-out opacity-0`}
               style={{
                 top: `${topPosition - 30}px`,
                 [isLeft ? 'right' : 'left']: '55%',
@@ -250,6 +271,28 @@ export function FinalTimeline({ locale }: FinalTimelineProps) {
               </h4>
               {event.subtitle && (
                 <p className="text-sm text-white/80 mt-2 drop-shadow-sm">
+                  {event.subtitle[locale]}
+                </p>
+              )}
+            </div>
+            
+            {/* Mobile Card - Single Column */}
+            <div
+              className="timeline-card md:hidden absolute w-[calc(100vw-80px)] max-w-sm p-4 ml-12 rounded-xl shadow-lg border border-white/30 backdrop-blur-md bg-white/25 transition-all duration-700 ease-out opacity-0"
+              style={{
+                top: `${topPosition - 25}px`,
+                left: '40px',
+                transform: 'translateX(-20px)'
+              }}
+            >
+              <h3 className="text-base font-bold text-white mb-2 uppercase drop-shadow-lg">
+                {event.date}
+              </h3>
+              <h4 className="text-sm font-semibold text-white/90 drop-shadow-md">
+                {event.title[locale]}
+              </h4>
+              {event.subtitle && (
+                <p className="text-xs text-white/80 mt-1 drop-shadow-sm">
                   {event.subtitle[locale]}
                 </p>
               )}
