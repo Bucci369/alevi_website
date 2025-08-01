@@ -91,13 +91,13 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
     <div id="hero-container" className="fixed inset-0 z-0">
       <section 
         id="hero-section"
-        className="h-screen flex items-center justify-center text-center bg-gradient-to-br from-blue-50 via-white to-blue-100 transition-transform duration-100 ease-out relative overflow-hidden"
+        className="h-screen flex items-start justify-center text-center bg-gradient-to-br from-blue-50 via-white to-blue-100 transition-transform duration-100 ease-out relative overflow-hidden pt-16"
       >
         {/* Single Calendar - Mobile shows partial view, Desktop shows full view */}
         {/* Calendar Background - with opacity */}
-        <div className="absolute inset-0 flex items-center justify-center p-4 z-10 overflow-hidden">
+        <div className="absolute inset-0 flex items-start justify-center pt-16 p-4 z-10 overflow-hidden">
           <div className="w-full h-full max-w-[150vw] max-h-[95vh] flex items-center justify-center">
-            <div className="bg-white/30 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl border border-white/20 w-full h-full flex flex-col relative min-w-[800px] min-h-[600px] opacity-30">
+            <div className="bg-white/30 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl border border-white/20 w-full h-full flex flex-col relative min-w-[800px] min-h-[600px] opacity-60">
               
               {/* One Calendar Grid - Same for all devices */}
               <div className="grid grid-cols-7 gap-1 sm:gap-2 lg:gap-3 xl:gap-4 text-center flex-1 min-h-0">
@@ -112,7 +112,7 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
                   </div>
                 ))}
                 
-                {/* Calendar Days - with title integrated */}
+                {/* Calendar Days - with title in its own cell */}
                 {calendarDays.map((dayData, index) => {
                   // Special styling for Wednesday cell with title
                   const isWednesdayWithTitle = index === 3; // Wednesday of first week
@@ -122,7 +122,7 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
                       key={index} 
                       className={`aspect-square flex flex-col items-center justify-center text-sm md:text-base lg:text-lg xl:text-xl font-medium border rounded-sm lg:rounded-md relative ${
                         isWednesdayWithTitle 
-                          ? 'text-gray-900 border-2 border-gray-800 bg-white shadow-xl' // Title cell
+                          ? 'text-gray-900 border border-gray-500 bg-gradient-to-br from-blue-50/50 to-white/60 shadow-lg shadow-gray-400/30' // Title cell - subtle styling
                           : dayData?.event 
                             ? 'text-red-700 border-red-400/60 bg-red-50/30' 
                             : 'text-gray-700 border-gray-400/50 bg-white/20'
@@ -187,6 +187,7 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
           </div>
         </div>
       </section>
+      
     </div>
   );
 }
