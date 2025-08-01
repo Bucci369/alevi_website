@@ -81,6 +81,45 @@ export default async function CalendarPage({ params }: CalendarPageProps) {
               smoothScrollTo(0);
             }
           }, { passive: false });
+          
+          // Mobile Touch Support für Handy
+          let touchStartY = 0;
+          let touchStartTime = 0;
+          
+          window.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+            touchStartTime = Date.now();
+          }, { passive: true });
+          
+          window.addEventListener('touchmove', (e) => {
+            if (isAnimating) {
+              e.preventDefault();
+              return false;
+            }
+            
+            const touchCurrentY = e.touches[0].clientY;
+            const touchDiff = touchStartY - touchCurrentY;
+            const currentScroll = window.scrollY;
+            const windowHeight = window.innerHeight;
+            
+            // Sofort triggern bei 50px Bewegung
+            if (Math.abs(touchDiff) > 50) {
+              // Nach unten swipen im Hero
+              if (touchDiff > 0 && currentScroll < windowHeight * 0.5) {
+                e.preventDefault();
+                smoothScrollTo(windowHeight);
+                return false;
+              }
+              // Nach oben swipen in Timeline-Top
+              else if (touchDiff < 0 && 
+                       currentScroll >= windowHeight &&
+                       currentScroll <= windowHeight + 200) {
+                e.preventDefault();
+                smoothScrollTo(0);
+                return false;
+              }
+            }
+          }, { passive: false });
         `
       }} />
     </>
