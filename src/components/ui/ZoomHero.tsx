@@ -100,7 +100,7 @@ export function ZoomHero({ locale }: ZoomHeroProps) {
               {locale === 'de' ? 'Alevitischer Kalender' : 'Alevi Takvimi'}
             </h1>
             <p className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-gray-700">
-              {new Date().getFullYear()}
+              {new Date().getFullYear()} - {locale === 'de' ? 'Religiöse Feiertage & Traditionen' : 'Dini Bayramlar & Gelenekler'}
             </p>
           </div>
         </div>
